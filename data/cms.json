@@ -1,0 +1,84 @@
+{
+  "company": {
+    "name": "Ubaid Good Transport",
+    "tagline": "Cargo | Loading | Logistics",
+    "phone": "03234125101",
+    "whatsapp": "923234125101",
+    "email": "info@ubaidgoodtransport.com",
+    "address": "Main Transport Hub, Lahore, Pakistan",
+    "logoUrl": ""
+  },
+  "homepage": {
+    "heroEyebrow": "Transport company in Pakistan",
+    "heroTitle": "Premium cargo transport, loading, house shifting, and logistics services across Pakistan.",
+    "heroDescription": "Ubaid Good Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
+    "introTitle": "Full-service transport support for homes, businesses, cargo, and long routes.",
+    "introDescription": "From loading services and house shifting to cargo transport and truck dispatch, Ubaid Good Transport gives customers a professional logistics partner across Pakistan.",
+    "heroImage": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80"
+  },
+  "seo": {
+    "title": "Ubaid Good Transport | Transport Company in Pakistan",
+    "description": "Cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all over Pakistan.",
+    "keywords": "Transport company in Pakistan, House shifting services, Loading services Pakistan, Truck dispatch Pakistan, Logistics company Pakistan, Cargo transport Lahore Karachi"
+  },
+  "services": [
+    {
+      "id": "loading",
+      "title": "Loading Services",
+      "description": "Professional loading and unloading teams for homes, offices, shops, warehouses, and commercial goods.",
+      "icon": "Boxes"
+    },
+    {
+      "id": "house-shifting",
+      "title": "House Shifting",
+      "description": "Careful house shifting services with packing support, labor, transport, and door-to-door coordination.",
+      "icon": "Home"
+    },
+    {
+      "id": "cargo",
+      "title": "Cargo Transport",
+      "description": "Reliable cargo transport from Lahore to Karachi, Multan, Rawalpindi, and all major Pakistan routes.",
+      "icon": "PackageCheck"
+    }
+  ],
+  "cities": ["Lahore", "Karachi", "Multan", "Rawalpindi", "All Pakistan"],
+  "routes": ["Lahore to Karachi", "Lahore to Multan", "Karachi to Rawalpindi", "All Pakistan long route delivery"],
+  "testimonials": [
+    {
+      "id": "t1",
+      "quote": "Ubaid Good Transport handled our Lahore to Karachi cargo with clear updates and careful loading.",
+      "name": "Ahmed Raza",
+      "role": "Retail Distributor, Lahore"
+    }
+  ],
+  "faqs": [
+    {
+      "id": "f1",
+      "question": "What services does Ubaid Good Transport provide?",
+      "answer": "We provide loading services, house shifting, cargo transport, truck dispatch, goods transport, logistics services, and long route delivery across Pakistan."
+    }
+  ],
+  "fleet": [
+    {
+      "id": "container",
+      "name": "Container Trucks",
+      "capacity": "Commercial cargo capacity",
+      "use": "Retail goods, cartons, palletized cargo, and intercity transport",
+      "image": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "transport-company-in-pakistan-guide",
+      "title": "How to Choose a Transport Company in Pakistan",
+      "excerpt": "A practical guide for comparing cargo transport, loading support, long route delivery, and logistics services across Pakistan.",
+      "content": "<p>Choose a transport company with reliable trucks, clear communication, careful loading teams, and experience on Pakistan routes.</p>",
+      "date": "2026-04-18",
+      "category": "Transport Pakistan",
+      "readTime": "5 min read",
+      "metaTitle": "How to Choose a Transport Company in Pakistan",
+      "metaDescription": "Compare cargo transport, loading support, route coverage, and logistics services in Pakistan."
+    }
+  ],
+  "images": []
+}
