@@ -20,7 +20,6 @@
   "devDependencies": {
     "@next/swc-wasm-nodejs": "^16.2.6",
     "@next/swc-wasm-web": "^16.2.4",
-    "@next/swc-win32-ia32-msvc": "^14.2.16",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
