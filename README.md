@@ -105,6 +105,17 @@ NEXT_PUBLIC_META_PIXEL_ID=000000000000000
 
 Lead events fire on quote form submit, sticky call clicks, sticky WhatsApp clicks, floating WhatsApp clicks, and landing-page call/WhatsApp buttons.
 
+## Quote Form Storage
+
+Set MongoDB variables before deploying the quote form:
+
+```txt
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net
+MONGODB_DB=ubaid_good_transport
+```
+
+Quote submissions are saved in the `quote_submissions` collection with truck type, service needed, pickup date, details, contact fields, source, status, and timestamps.
+
 ## Production Build
 
 ```bash

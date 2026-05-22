@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import Script from "next/script";
 import "./globals.css";
@@ -10,12 +9,6 @@ import { StickyLeadBar } from "@/components/sticky-lead-bar";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { siteConfig } from "@/data/site";
 import { getCmsContent } from "@/lib/cms";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter"
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   const cms = await getCmsContent();
@@ -88,7 +81,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body>
         <LeadTracking />
         <Script
           id="organization-schema"
