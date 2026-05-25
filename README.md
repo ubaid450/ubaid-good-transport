@@ -1,6 +1,6 @@
-# Ubaid Good Transport Website
+# Ubaid Goods Transport Website
 
-Premium Next.js and Tailwind CSS website for Ubaid Good Transport.
+Premium Next.js and Tailwind CSS website for Ubaid Goods Transport.
 
 ## Pages
 
@@ -66,7 +66,7 @@ http://127.0.0.1:3000/admin
 Default demo credentials:
 
 ```txt
-Email: admin@ubaidgoodtransport.com
+Email: admin@ubaidgoodstransport.com
 Password: admin12345
 ```
 
@@ -111,7 +111,7 @@ Set MongoDB variables before deploying the quote form:
 
 ```txt
 MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net
-MONGODB_DB=ubaid_good_transport
+MONGODB_DB=ubaid_goods_transport
 ```
 
 Quote submissions are saved in the `quote_submissions` collection with truck type, service needed, pickup date, details, contact fields, source, status, and timestamps.

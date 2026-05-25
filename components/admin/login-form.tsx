@@ -37,7 +37,7 @@ export function LoginForm() {
       </div>
       <label className="grid gap-2 text-sm font-semibold text-ink">
         Email
-        <input name="email" type="email" defaultValue="admin@ubaidgoodtransport.com" className="focus-ring min-h-12 rounded-md border border-slate-200 px-4 font-normal" required />
+        <input name="email" type="email" defaultValue="admin@ubaidgoodstransport.com" className="focus-ring min-h-12 rounded-md border border-slate-200 px-4 font-normal" required />
       </label>
       <label className="grid gap-2 text-sm font-semibold text-ink">
         Password
@@ -49,7 +49,7 @@ export function LoginForm() {
       {error ? <p className="rounded-md bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">{error}</p> : null}
       <div className="rounded-md bg-brand-50 p-4 text-sm leading-6 text-brand-900">
         <strong>Default credentials:</strong><br />
-        Email: admin@ubaidgoodtransport.com<br />
+        Email: admin@ubaidgoodstransport.com<br />
         Password: admin12345
       </div>
     </form>

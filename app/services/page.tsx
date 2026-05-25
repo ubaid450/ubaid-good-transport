@@ -7,7 +7,7 @@ import { iconMap, type IconName } from "@/lib/icon-map";
 
 export const metadata: Metadata = {
   title: "Logistics Services",
-  description: "Explore loading services, house shifting, cargo transport, truck dispatch Pakistan, goods transport, and logistics services by Ubaid Good Transport."
+  description: "Explore loading services, house shifting, cargo transport, truck dispatch Pakistan, goods transport, and logistics services by Ubaid Goods Transport."
 };
 
 export default async function ServicesPage() {

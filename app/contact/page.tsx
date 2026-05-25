@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Contact Ubaid Good Transport for cargo transport, loading services, house shifting, truck dispatch Pakistan, and logistics services."
+  description: "Contact Ubaid Goods Transport for cargo transport, loading services, house shifting, truck dispatch Pakistan, and logistics services."
 };
 
 export default function ContactPage() {
@@ -15,7 +15,7 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact us"
-        title="Call or WhatsApp Ubaid Good Transport."
+        title="Call or WhatsApp Ubaid Goods Transport."
         description="Reach out for cargo transport pricing, loading services, house shifting, long route delivery, or dispatch support."
       />
       <section className="section-pad bg-white">

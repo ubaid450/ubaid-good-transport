@@ -15,9 +15,9 @@ import {
 } from "lucide-react";
 
 export const siteConfig = {
-  name: "Ubaid Good Transport",
+  name: "Ubaid Goods Transport",
   shortName: "UGT",
-  url: "https://ubaidgoodtransport.com",
+  url: "https://ubaidgoodstransport.com",
   phone: "03234125101",
   whatsapp: "923234125101",
   email: "info@ubaidgoodtransport.com",
@@ -116,7 +116,7 @@ export const fleet = [
 export const testimonials = [
   {
     quote:
-      "Ubaid Good Transport handled our Lahore to Karachi cargo with clear updates and careful loading. The service felt professional from start to finish.",
+      "Ubaid Goods Transport handled our Lahore to Karachi cargo with clear updates and careful loading. The service felt professional from start to finish.",
     name: "Ahmed Raza",
     role: "Retail Distributor, Lahore"
   },
@@ -128,7 +128,7 @@ export const testimonials = [
   },
   {
     quote:
-      "For long route delivery and loading services, Ubaid Good Transport is now our regular logistics partner.",
+      "For long route delivery and loading services, Ubaid Goods Transport is now our regular logistics partner.",
     name: "Bilal Khan",
     role: "Factory Manager, Multan"
   }
@@ -136,7 +136,7 @@ export const testimonials = [
 
 export const faqs = [
   {
-    question: "What services does Ubaid Good Transport provide?",
+    question: "What services does Ubaid Goods Transport provide?",
     answer:
       "We provide loading services, house shifting, cargo transport, truck dispatch, goods transport, logistics services, and long route delivery across Pakistan."
   },

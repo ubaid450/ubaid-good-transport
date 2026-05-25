@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 
-const defaultEmail = "admin@ubaidgoodtransport.com";
+const defaultEmail = "admin@ubaidgoodstransport.com";
 const defaultPassword = "admin12345";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -34,7 +34,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return {
             id: "admin",
             email: adminEmail,
-            name: "Ubaid Good Transport Admin"
+            name: "Ubaid Goods Transport Admin"
           };
         }
 

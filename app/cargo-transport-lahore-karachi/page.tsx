@@ -4,7 +4,7 @@ import { LandingPage } from "@/components/landing-page";
 export const metadata: Metadata = {
   title: "Cargo Transport Lahore Karachi",
   description:
-    "Book cargo transport Lahore to Karachi with Ubaid Good Transport. Long route delivery, goods transport, truck dispatch, and loading support."
+    "Book cargo transport Lahore to Karachi with Ubaid Goods Transport. Long route delivery, goods transport, truck dispatch, and loading support."
 };
 
 export default function CargoTransportLahoreKarachiPage() {

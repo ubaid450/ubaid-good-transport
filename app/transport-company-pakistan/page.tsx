@@ -4,7 +4,7 @@ import { LandingPage } from "@/components/landing-page";
 export const metadata: Metadata = {
   title: "Transport Company in Pakistan",
   description:
-    "Book Ubaid Good Transport for cargo transport, goods transport, truck dispatch, loading, and long route delivery across Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
+    "Book Ubaid Goods Transport for cargo transport, goods transport, truck dispatch, loading, and long route delivery across Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
 };
 
 export default function TransportCompanyPakistanPage() {

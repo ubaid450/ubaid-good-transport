@@ -21,7 +21,7 @@ export function MapSection() {
             <MapPinned aria-hidden="true" className="mx-auto h-14 w-14 text-brand-600" />
             <p className="mt-4 text-xl font-bold text-ink">Google Maps Embed Placeholder</p>
             <p className="mt-2 max-w-md text-sm leading-7 text-slate-600">
-              Replace this with your Ubaid Good Transport Google Maps iframe after adding a verified business location.
+              Replace this with your Ubaid Goods Transport Google Maps iframe after adding a verified business location.
             </p>
           </div>
         </div>

@@ -64,11 +64,11 @@ const cmsPath = path.join(process.cwd(), "data", "cms.json");
 
 export const defaultCmsContent: CmsContent = {
   company: {
-    name: "Ubaid Good Transport",
+    name: "Ubaid Goods Transport",
     tagline: "Cargo | Loading | Logistics",
     phone: "03234125101",
     whatsapp: "923234125101",
-    email: "info@ubaidgoodtransport.com",
+    email: "info@ubaidgoodstransport.com",
     address: "Main Transport Hub, Lahore, Pakistan",
     logoUrl: ""
   },
@@ -76,14 +76,14 @@ export const defaultCmsContent: CmsContent = {
     heroEyebrow: "Transport company in Pakistan",
     heroTitle: "Premium cargo transport, loading, house shifting, and logistics services across Pakistan.",
     heroDescription:
-      "Ubaid Good Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
+      "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
     introTitle: "Full-service transport support for homes, businesses, cargo, and long routes.",
     introDescription:
       "From loading services and house shifting to cargo transport and truck dispatch, Ubaid Good Transport gives customers a professional logistics partner across Pakistan.",
     heroImage: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80"
   },
   seo: {
-    title: "Ubaid Good Transport | Transport Company in Pakistan",
+    title: "Ubaid Goods Transport | Transport Company in Pakistan",
     description:
       "Cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all over Pakistan.",
     keywords:
@@ -100,11 +100,11 @@ export const defaultCmsContent: CmsContent = {
   cities: ["Lahore", "Karachi", "Multan", "Rawalpindi", "All Pakistan"],
   routes: ["Lahore to Karachi", "Lahore to Multan", "Karachi to Rawalpindi", "All Pakistan long route delivery"],
   testimonials: [
-    { id: "t1", quote: "Ubaid Good Transport handled our Lahore to Karachi cargo with clear updates and careful loading.", name: "Ahmed Raza", role: "Retail Distributor, Lahore" },
+    { id: "t1", quote: "Ubaid Goods Transport handled our Lahore to Karachi cargo with clear updates and careful loading.", name: "Ahmed Raza", role: "Retail Distributor, Lahore" },
     { id: "t2", quote: "Their house shifting team packed and loaded everything carefully. Booking on WhatsApp was simple.", name: "Sana Malik", role: "House Shifting Customer" }
   ],
   faqs: [
-    { id: "f1", question: "What services does Ubaid Good Transport provide?", answer: "We provide loading services, house shifting, cargo transport, truck dispatch, goods transport, logistics services, and long route delivery across Pakistan." },
+    { id: "f1", question: "What services does Ubaid Goods Transport provide?", answer: "We provide loading services, house shifting, cargo transport, truck dispatch, goods transport, logistics services, and long route delivery across Pakistan." },
     { id: "f2", question: "Can I book by WhatsApp?", answer: "Yes. Call or WhatsApp 03234125101 to request a quick quote, book a truck, or ask about loading and house shifting services." }
   ],
   fleet: [

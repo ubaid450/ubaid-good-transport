@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "Loading Services Pakistan",
   description:
-    "Book loading services in Pakistan with Ubaid Good Transport for homes, shops, factories, warehouses, cargo, and long route goods transport."
+    "Book loading services in Pakistan with Ubaid Goods Transport for homes, shops, factories, warehouses, cargo, and long route goods transport."
 };
 
 export default function LoadingServicesPage() {
@@ -25,7 +25,7 @@ export default function LoadingServicesPage() {
             <p className="text-sm font-bold uppercase text-brand-600">Safe goods handling</p>
             <h2 className="mt-3 text-3xl font-bold text-ink sm:text-4xl">Loading services for household and commercial goods.</h2>
             <p className="mt-5 text-base leading-8 text-slate-600">
-              Ubaid Good Transport provides loading support for homes, offices, retailers, warehouses, factories, and long route cargo shipments.
+              Ubaid Goods Transport provides loading support for homes, offices, retailers, warehouses, factories, and long route cargo shipments.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[

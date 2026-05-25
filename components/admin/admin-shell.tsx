@@ -49,7 +49,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur">
           <div className="container-pad flex min-h-16 items-center justify-between gap-4 py-3">
             <div>
-              <p className="text-sm font-bold uppercase text-brand-600">Ubaid Good Transport</p>
+              <p className="text-sm font-bold uppercase text-brand-600">Ubaid Goods Transport</p>
               <h2 className="text-xl font-black text-ink">Admin Dashboard</h2>
             </div>
             <button onClick={() => signOut({ callbackUrl: "/admin" })} className="focus-ring rounded-md border border-slate-200 px-4 py-2 text-sm font-bold text-ink lg:hidden">

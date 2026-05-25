@@ -4,7 +4,7 @@ import { LandingPage } from "@/components/landing-page";
 export const metadata: Metadata = {
   title: "House Shifting Services Pakistan",
   description:
-    "Book house shifting services in Pakistan with Ubaid Good Transport. Careful loading, furniture transport, Mazda trucks, and door-to-door shifting support."
+    "Book house shifting services in Pakistan with Ubaid Goods Transport. Careful loading, furniture transport, Mazda trucks, and door-to-door shifting support."
 };
 
 export default function HouseShiftingServicesPakistanPage() {

@@ -18,7 +18,7 @@ export default async function FleetPage() {
       <PageHero
         eyebrow="Fleet / trucks"
         title="Flexible truck capacity for cargo, shifting, and commercial transport."
-        description="Showcase trucks for Ubaid Good Transport, including container trucks, Mazda trucks, flatbeds, and cargo trucks."
+        description="Showcase trucks for Ubaid Goods Transport, including container trucks, Mazda trucks, flatbeds, and cargo trucks."
       />
       <section className="section-pad bg-white">
         <div className="container-pad">

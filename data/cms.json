@@ -1,23 +1,23 @@
 {
   "company": {
-    "name": "Ubaid Good Transport",
+    "name": "Ubaid Goods Transport",
     "tagline": "Cargo | Loading | Logistics",
     "phone": "03234125101",
     "whatsapp": "923234125101",
-    "email": "info@ubaidgoodtransport.com",
+    "email": "info@ubaidgoodstransport.com",
     "address": "Main Transport Hub, Lahore, Pakistan",
     "logoUrl": ""
   },
   "homepage": {
     "heroEyebrow": "Transport company in Pakistan",
     "heroTitle": "Premium cargo transport, loading, house shifting, and logistics services across Pakistan.",
-    "heroDescription": "Ubaid Good Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
+    "heroDescription": "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
     "introTitle": "Full-service transport support for homes, businesses, cargo, and long routes.",
     "introDescription": "From loading services and house shifting to cargo transport and truck dispatch, Ubaid Good Transport gives customers a professional logistics partner across Pakistan.",
     "heroImage": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1800&q=80"
   },
   "seo": {
-    "title": "Ubaid Good Transport | Transport Company in Pakistan",
+    "title": "Ubaid Goods Transport | Transport Company in Pakistan",
     "description": "Cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all over Pakistan.",
     "keywords": "Transport company in Pakistan, House shifting services, Loading services Pakistan, Truck dispatch Pakistan, Logistics company Pakistan, Cargo transport Lahore Karachi"
   },
@@ -46,7 +46,7 @@
   "testimonials": [
     {
       "id": "t1",
-      "quote": "Ubaid Good Transport handled our Lahore to Karachi cargo with clear updates and careful loading.",
+      "quote": "Ubaid Goods Transport handled our Lahore to Karachi cargo with clear updates and careful loading.",
       "name": "Ahmed Raza",
       "role": "Retail Distributor, Lahore"
     }
@@ -54,7 +54,7 @@
   "faqs": [
     {
       "id": "f1",
-      "question": "What services does Ubaid Good Transport provide?",
+      "question": "What services does Ubaid Goods Transport provide?",
       "answer": "We provide loading services, house shifting, cargo transport, truck dispatch, goods transport, logistics services, and long route delivery across Pakistan."
     }
   ],

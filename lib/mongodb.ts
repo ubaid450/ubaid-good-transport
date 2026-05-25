@@ -1,7 +1,7 @@
 import { MongoClient, type Db } from "mongodb";
 
 const uri = process.env.MONGODB_URI;
-const dbName = process.env.MONGODB_DB || "ubaid_good_transport";
+const dbName = process.env.MONGODB_DB || "ubaid_goods_transport";
 
 type CachedMongo = {
   client?: MongoClient;

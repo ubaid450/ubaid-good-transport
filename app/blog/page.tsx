@@ -6,7 +6,7 @@ import { getCmsContent } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Logistics Blog",
-  description: "Ubaid Good Transport blog articles for transport company in Pakistan, house shifting services, loading services Pakistan, cargo transport, and truck dispatch Pakistan."
+  description: "Ubaid Goods Transport blog articles for transport company in Pakistan, house shifting services, loading services Pakistan, cargo transport, and truck dispatch Pakistan."
 };
 
 export default async function BlogPage() {

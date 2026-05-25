@@ -5,7 +5,7 @@ import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about Ubaid Good Transport, a modern transport company in Pakistan for cargo, loading, house shifting, truck dispatch, and logistics services."
+  description: "Learn about Ubaid Goods Transport, a modern transport company in Pakistan for cargo, loading, house shifting, truck dispatch, and logistics services."
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="A modern transport and logistics partner for Pakistan."
-        description="Ubaid Good Transport was built for customers who need careful loading, dependable cargo transport, professional house shifting, and clear communication."
+        description="Ubaid Goods Transport was built for customers who need careful loading, dependable cargo transport, professional house shifting, and clear communication."
       />
       <section className="section-pad bg-white">
         <div className="container-pad grid gap-10 lg:grid-cols-2 lg:items-center">

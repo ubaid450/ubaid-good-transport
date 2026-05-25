@@ -7,7 +7,7 @@ import type { CmsContent } from "@/lib/cms";
 export function Hero({ cms }: { cms?: CmsContent }) {
   const homepage = cms?.homepage;
   const company = cms?.company;
-  const whatsappMessage = encodeURIComponent(`Assalam o Alaikum ${company?.name || "Ubaid Good Transport"}, I need a quick transport quote.`);
+  const whatsappMessage = encodeURIComponent(`Assalam o Alaikum ${company?.name || "Ubaid Goods Transport"}, I need a quick transport quote.`);
 
   return (
     <section className="relative isolate min-h-[calc(100svh-5rem)] overflow-hidden bg-brand-900 text-white">
@@ -30,7 +30,7 @@ export function Hero({ cms }: { cms?: CmsContent }) {
             {homepage?.heroTitle || "Premium cargo transport, loading, house shifting, and logistics services across Pakistan."}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-50">
-            {homepage?.heroDescription || "Ubaid Good Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking."}
+            {homepage?.heroDescription || "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking."}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/quote" variant="light">Request a Quote</ButtonLink>

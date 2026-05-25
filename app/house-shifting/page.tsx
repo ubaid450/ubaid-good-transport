@@ -8,7 +8,7 @@ import { siteConfig } from "@/data/site";
 export const metadata: Metadata = {
   title: "House Shifting Services in Pakistan",
   description:
-    "Professional house shifting services by Ubaid Good Transport with loading labor, furniture handling, cargo trucks, and door-to-door support in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
+    "Professional house shifting services by Ubaid Goods Transport with loading labor, furniture handling, cargo trucks, and door-to-door support in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
 };
 
 export default function HouseShiftingPage() {
@@ -17,7 +17,7 @@ export default function HouseShiftingPage() {
       <PageHero
         eyebrow="House shifting services"
         title="Careful house shifting with transport, loading, and delivery support."
-        description="Move furniture, appliances, boxes, and household goods with Ubaid Good Transport across Lahore, Karachi, Multan, Rawalpindi, and all over Pakistan."
+        description="Move furniture, appliances, boxes, and household goods with Ubaid Goods Transport across Lahore, Karachi, Multan, Rawalpindi, and all over Pakistan."
       />
       <section className="section-pad bg-white">
         <div className="container-pad grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
