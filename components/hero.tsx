@@ -29,6 +29,9 @@ export function Hero({ cms }: { cms?: CmsContent }) {
           <h1 className="text-4xl font-black sm:text-5xl lg:text-7xl">
             {homepage?.heroTitle || "Reliable goods transport, cargo delivery, house shifting, loading, and logistics services across Pakistan."}
           </h1>
+          <p className="mt-4 text-lg text-white/80">
+         Trusted by businesses and families across Pakistan for safe and reliable transport services.
+          </p>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-50">
             {homepage?.heroDescription || "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking."}
           </p>

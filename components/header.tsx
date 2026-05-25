@@ -36,7 +36,7 @@ export function Header({ cms }: { cms?: CmsContent }) {
             href="/quote"
             className="focus-ring inline-flex min-h-11 items-center rounded-md bg-brand-600 px-5 text-sm font-bold text-white transition hover:bg-brand-700"
           >
-            Get Quote
+            Get Free Quote
           </Link>
         </div>
 
