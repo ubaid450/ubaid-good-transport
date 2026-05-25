@@ -33,7 +33,7 @@ export function LoginForm() {
       </div>
       <div>
         <h1 className="text-2xl font-black text-ink">Admin Login</h1>
-        <p className="mt-2 text-sm leading-6 text-slate-600">Manage Ubaid Good Transport website content securely.</p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">Manage Ubaid Goods Transport website content securely.</p>
       </div>
       <label className="grid gap-2 text-sm font-semibold text-ink">
         Email

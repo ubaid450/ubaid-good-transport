@@ -18,7 +18,7 @@ import { iconMap, type IconName } from "@/lib/icon-map";
 export const metadata: Metadata = {
   title: "Transport Company in Pakistan",
   description:
-    "Ubaid Good Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
+    "Ubaid Goods Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
 };
 
 export default async function HomePage() {
@@ -91,7 +91,7 @@ export default async function HomePage() {
             <SectionHeading
               eyebrow="Fleet showcase"
               title="Truck capacity for cargo, loading, and house shifting."
-              description="Sample truck categories for Ubaid Good Transport service routes across Pakistan."
+              description="Sample truck categories for Ubaid Goods Transport service routes across Pakistan."
             />
             <Link href="/fleet" className="inline-flex items-center gap-2 text-sm font-bold text-brand-700 hover:text-brand-900">
               View fleet
@@ -114,7 +114,7 @@ export default async function HomePage() {
         <div className="container-pad grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <SectionHeading
             eyebrow="Contact"
-            title="Request a fast quote from Ubaid Good Transport."
+            title="Request a fast quote from Ubaid Goods Transport."
             description="Use the quick quote form to request cargo transport, loading services, house shifting, or truck dispatch support."
           />
           <ContactForm />
