@@ -16,7 +16,7 @@ import { getCmsContent } from "@/lib/cms";
 import { iconMap, type IconName } from "@/lib/icon-map";
 
 export const metadata: Metadata = {
-  title: "Transport Company in Pakistan",
+  title: "PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY",
   description:
     "Ubaid Goods Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
 };

@@ -74,7 +74,7 @@ export const defaultCmsContent: CmsContent = {
   },
   homepage: {
     heroEyebrow: "Transport company in Pakistan",
-    heroTitle: "Premium cargo transport, loading, house shifting, and logistics services across Pakistan.",
+    heroTitle: "Reliable goods transport, cargo delivery, loading, house shifting, and logistics services across Pakistan.",
     heroDescription:
       "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking.",
     introTitle: "Full-service transport support for homes, businesses, cargo, and long routes.",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LandingPage } from "@/components/landing-page";
 
 export const metadata: Metadata = {
-  title: "Transport Company in Pakistan",
+  title: "PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY",
   description:
     "Book Ubaid Goods Transport for cargo transport, goods transport, truck dispatch, loading, and long route delivery across Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
 };
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function TransportCompanyPakistanPage() {
   return (
     <LandingPage
-      eyebrow="Transport company in Pakistan"
+      eyebrow="PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY"
       title="Reliable transport company for cargo, goods, and long route delivery."
       description="Get fast truck booking, loading support, and route coordination for homes, businesses, shops, factories, and distributors across Pakistan."
       service="transport services"

@@ -23,11 +23,11 @@ export function Hero({ cms }: { cms?: CmsContent }) {
       <div className="container-pad flex min-h-[calc(100svh-5rem)] items-center pb-20 pt-16">
         <div className="max-w-3xl animate-rise">
           <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-3 py-2 text-sm font-bold uppercase text-blue-50 backdrop-blur">
-            <CheckCircle2 aria-hidden="true" className="h-4 w-4" />
-            {homepage?.heroEyebrow || "Transport company in Pakistan"}
+            <CheckCircle2 aria-hidden="true" className="h-4 w-4" />"PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY"
+            {homepage?.heroEyebrow || ""}
           </p>
           <h1 className="text-4xl font-black sm:text-5xl lg:text-7xl">
-            {homepage?.heroTitle || "Premium cargo transport, loading, house shifting, and logistics services across Pakistan."}
+            {homepage?.heroTitle || "Reliable goods transport, cargo delivery, house shifting, loading, and logistics services across Pakistan."}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-50">
             {homepage?.heroDescription || "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking."}
