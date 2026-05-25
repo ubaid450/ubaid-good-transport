@@ -37,6 +37,9 @@ export function Header({ cms }: { cms?: CmsContent }) {
             className="focus-ring inline-flex min-h-11 items-center rounded-md bg-brand-600 px-5 text-sm font-bold text-white transition hover:bg-brand-700"
           >
             Get Free Quote
+            <p className="mt-3 text-sm text-white/70">
+           Available on WhatsApp 24/7 for bookings and quotes.
+          </p>
           </Link>
         </div>
 

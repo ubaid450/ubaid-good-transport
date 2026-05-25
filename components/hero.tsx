@@ -35,6 +35,22 @@ export function Hero({ cms }: { cms?: CmsContent }) {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-blue-50">
             {homepage?.heroDescription || "Ubaid Goods Transport connects Lahore, Karachi, Multan, Rawalpindi, and all Pakistan routes with reliable trucks, careful loading teams, and fast WhatsApp booking."}
           </p>
+          <div className="mt-6 flex flex-wrap gap-6 text-white">
+          <div>
+          <p className="text-2xl font-bold">500+</p>
+          <p className="text-sm">Successful Deliveries</p>
+          </div>
+
+          <div>
+          <p className="text-2xl font-bold">24/7</p>
+          <p className="text-sm">Customer Support</p>
+         </div>
+
+         <div>
+         <p className="text-2xl font-bold">Nationwide</p>
+         <p className="text-sm">Coverage Across Pakistan</p>
+         </div>
+         </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href="/quote" variant="light">Request a Quote</ButtonLink>
             <ConversionLink
