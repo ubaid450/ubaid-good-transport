@@ -14,7 +14,8 @@ export function Footer({ cms }: { cms?: CmsContent }) {
         <div>
           <Logo inverted name={company?.name} tagline={company?.tagline} logoUrl={company?.logoUrl} />
           <p className="mt-5 text-sm leading-7 text-blue-100">
-            Premium transport company in Pakistan providing cargo transport, loading services, house shifting, truck dispatch, and logistics services.
+            Premium transport company in Pakistan providing cargo transport, loading services, Logistics
+           Truck Dispatch, house shifting, truck dispatch, and logistics services.
           </p>
           <p className="mt-6 text-sm text-slate-400">
             Ubaid Goods Transport provides reliable cargo transport, loading, logistics, truck dispatch, and house shifting services across Pakistan.
@@ -22,7 +23,7 @@ export function Footer({ cms }: { cms?: CmsContent }) {
         </div>
 
          <div>
-          <h3 className="text-sm font-bold uppercase text-blue-100">Pages</h3>
+          <h3 className="text-sm font-bold uppercase text-blue-100">QUICK LINKS</h3>
           <div className="mt-4 grid gap-3">
             {navLinks.slice(0, 6).map((link) => (
               <Link key={link.href} href={link.href} className="text-sm text-blue-50 transition hover:text-white">
@@ -44,7 +45,7 @@ export function Footer({ cms }: { cms?: CmsContent }) {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase text-blue-100">Contact</h3>
+          <h3 className="text-sm font-bold uppercase text-blue-100">Contact WhatsApp: 03234125101</h3>
           <div className="mt-4 grid gap-4 text-sm text-blue-50">
             <a className="flex gap-3 hover:text-white" href={`tel:${company?.phone || siteConfig.phone}`}>
               <Phone aria-hidden="true" className="mt-0.5 h-4 w-4" />
@@ -71,7 +72,7 @@ export function Footer({ cms }: { cms?: CmsContent }) {
       <div className="border-t border-white/10 py-5">
         <div className="container-pad flex flex-col gap-3 text-sm text-blue-100 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {company?.name || siteConfig.name}. © 2026 Ubaid Goods Transport. All rights reserved.</p>
-          <p>SEO-ready Next.js logistics website.</p>
+          <p>Trusted Cargo & Logistics Services Across Pakistan.</p>
         </div>
       </div>
     </footer>
