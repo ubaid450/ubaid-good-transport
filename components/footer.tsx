@@ -16,9 +16,12 @@ export function Footer({ cms }: { cms?: CmsContent }) {
           <p className="mt-5 text-sm leading-7 text-blue-100">
             Premium transport company in Pakistan providing cargo transport, loading services, house shifting, truck dispatch, and logistics services.
           </p>
+          <p className="mt-6 text-sm text-slate-400">
+            Ubaid Goods Transport provides reliable cargo transport, loading, logistics, truck dispatch, and house shifting services across Pakistan.
+          </p>
         </div>
 
-        <div>
+         <div>
           <h3 className="text-sm font-bold uppercase text-blue-100">Pages</h3>
           <div className="mt-4 grid gap-3">
             {navLinks.slice(0, 6).map((link) => (
@@ -67,7 +70,7 @@ export function Footer({ cms }: { cms?: CmsContent }) {
       </div>
       <div className="border-t border-white/10 py-5">
         <div className="container-pad flex flex-col gap-3 text-sm text-blue-100 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} {company?.name || siteConfig.name}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {company?.name || siteConfig.name}. © 2026 Ubaid Goods Transport. All rights reserved.</p>
           <p>SEO-ready Next.js logistics website.</p>
         </div>
       </div>
