@@ -14,8 +14,8 @@ export function Footer({ cms }: { cms?: CmsContent }) {
         <div>
           <Logo inverted name={company?.name} tagline={company?.tagline} logoUrl={company?.logoUrl} />
           <p className="mt-5 text-sm leading-7 text-blue-100">
-            Premium transport company in Pakistan providing cargo transport, loading services, Logistics
-           Truck Dispatch, house shifting, truck dispatch, and logistics services.
+            Premium transport company in Pakistan providing cargo transport, loading services, 
+           house shifting, truck dispatch, and logistics services.
           </p>
           <p className="mt-6 text-sm text-slate-400">
             Ubaid Goods Transport provides reliable cargo transport, loading, logistics, truck dispatch, and house shifting services across Pakistan.
@@ -40,12 +40,16 @@ export function Footer({ cms }: { cms?: CmsContent }) {
               <Link key={service.title} href="/services" className="text-sm text-blue-50 transition hover:text-white">
                 {service.title}
               </Link>
+
             ))}
+            <p>Logistics</p>
+            <p>Truck Dispatch</p>
           </div>
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase text-blue-100">Contact WhatsApp: 03234125101</h3>
+          <h3 className="text-sm font-bold uppercase text-blue-100">CONTACT
+          WhatsApp: 03234125101</h3>
           <div className="mt-4 grid gap-4 text-sm text-blue-50">
             <a className="flex gap-3 hover:text-white" href={`tel:${company?.phone || siteConfig.phone}`}>
               <Phone aria-hidden="true" className="mt-0.5 h-4 w-4" />
