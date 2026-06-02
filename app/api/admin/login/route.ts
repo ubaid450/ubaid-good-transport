@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   const adminPassword = process.env.ADMIN_PASSWORD;
 
   if (email !== adminEmail || password !== adminPassword) {
-    return NextResponse.redirect(new URL("/login2", req.url));
+    return NextResponse.redirect(new URL("/login", req.url));
   }
 
   const token = signSession(email);
