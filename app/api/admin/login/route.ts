@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { signSession, COOKIE_NAME } from "@/lib/auth";
+import { signSession, validateAdminLogin, COOKIE_NAME } from "@/lib/auth";
 
 export async function POST(req: Request) {
   const formData = await req.formData();
@@ -7,16 +7,15 @@ export async function POST(req: Request) {
   const email = String(formData.get("email") || "").trim();
   const password = String(formData.get("password") || "");
 
-  const adminEmail = process.env.ADMIN_USERNAME;
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const valid = await validateAdminLogin(email, password);
 
-  if (email !== adminEmail || password !== adminPassword) {
-    return NextResponse.redirect(new URL("/login", req.url));
+  if (!valid) {
+    return NextResponse.redirect(new URL("/login", req.url), 303);
   }
 
   const token = signSession(email);
 
-  const res = NextResponse.redirect(new URL("/admin", req.url));
+  const res = NextResponse.redirect(new URL("/admin/dashboard", req.url), 303);
 
   res.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,
