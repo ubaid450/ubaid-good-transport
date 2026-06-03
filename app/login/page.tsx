@@ -4,21 +4,11 @@ export default function LoginPage() {
       <h1>Admin Login</h1>
 
       <form method="POST" action="/api/admin/login">
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-        />
+        <input name="email" type="email" placeholder="Email" required />
         <br />
         <br />
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-        />
+        <input name="password" type="password" placeholder="Password" required />
         <br />
         <br />
 
