@@ -16,6 +16,7 @@ import { TrustBadges } from "@/components/trust-badges";
 import { advantages, fleet, services } from "@/data/site";
 import { getCmsContent } from "@/lib/cms";
 import { iconMap, type IconName } from "@/lib/icon-map";
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY",
