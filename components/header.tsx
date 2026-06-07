@@ -14,11 +14,19 @@ export function Header({ cms }: { cms?: CmsContent }) {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/95 backdrop-blur">
       <div className="container-pad flex h-20 items-center justify-between">
-        <Logo name={company?.name} tagline={company?.tagline} logoUrl={company?.logoUrl} />
+        <Logo
+          name={company?.name}
+          tagline={company?.tagline}
+          logoUrl={company?.logoUrl}
+        />
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-semibold text-slate-700 transition hover:text-brand-600">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-semibold text-slate-700 transition hover:text-brand-600"
+            >
               {link.label}
             </Link>
           ))}
@@ -32,14 +40,12 @@ export function Header({ cms }: { cms?: CmsContent }) {
             <Phone aria-hidden="true" className="h-4 w-4" />
             Call {company?.phone || siteConfig.phone}
           </a>
+
           <Link
             href="/quote"
             className="focus-ring inline-flex min-h-11 items-center rounded-md bg-brand-600 px-5 text-sm font-bold text-white transition hover:bg-brand-700"
           >
             Get Free Quote
-            <p className="mt-3 text-sm text-white/70">
-           Available on WhatsApp 24/7 for bookings and quotes.
-          </p>
           </Link>
         </div>
 
@@ -66,6 +72,13 @@ export function Header({ cms }: { cms?: CmsContent }) {
                 {link.label}
               </Link>
             ))}
+
+            <a
+              href={`tel:${company?.phone || siteConfig.phone}`}
+              className="rounded-md px-3 py-3 text-sm font-bold text-brand-700"
+            >
+              Call {company?.phone || siteConfig.phone}
+            </a>
           </nav>
         </div>
       ) : null}
