@@ -10,6 +10,7 @@ import { MapSection } from "@/components/map-section";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
 import { Testimonials } from "@/components/testimonials";
+import { Footer } from "@/components/footer";
 import { TrustBadges } from "@/components/trust-badges";
 import { advantages, fleet, services } from "@/data/site";
 import { getCmsContent } from "@/lib/cms";
@@ -121,7 +122,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <MapSection />
+            <MapSection />
+      <Footer cms={cms} />
     </>
   );
 }
