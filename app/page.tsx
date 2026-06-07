@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { FAQ } from "@/components/faq";
 import { FleetCard } from "@/components/fleet-card";
+import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { LeadCaptureSection } from "@/components/lead-capture-section";
 import { MapSection } from "@/components/map-section";
@@ -19,20 +20,24 @@ import { iconMap, type IconName } from "@/lib/icon-map";
 export const metadata: Metadata = {
   title: "PAKISTAN'S TRUSTED GOODS TRANSPORT COMPANY",
   description:
-    "Ubaid Goods Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan."
+    "Ubaid Goods Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan.",
 };
 
 export default async function HomePage() {
   const cms = await getCmsContent();
+
   const cmsServices = cms.services.map((service) => ({
     ...service,
-    icon: iconMap[(service.icon as IconName)] || iconMap.Truck
+    icon: iconMap[(service.icon as IconName)] || iconMap.Truck,
   }));
 
   return (
     <>
+      <Header cms={cms} />
       <Hero cms={cms} />
+
       <TrustBadges />
+
       <section className="section-pad bg-white">
         <div className="container-pad">
           <SectionHeading
@@ -58,9 +63,14 @@ export default async function HomePage() {
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {cms.cities.map((city) => (
-              <div key={city} className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm">
+              <div
+                key={city}
+                className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm"
+              >
                 <p className="text-lg font-black text-brand-700">{city}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">Cargo, loading, dispatch, and shifting support.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Cargo, loading, dispatch, and shifting support.
+                </p>
               </div>
             ))}
           </div>
@@ -76,10 +86,15 @@ export default async function HomePage() {
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {advantages.map((item) => (
-              <article key={item.title} className="rounded-lg border border-brand-100 bg-white p-5 shadow-sm">
+              <article
+                key={item.title}
+                className="rounded-lg border border-brand-100 bg-white p-5 shadow-sm"
+              >
                 <item.icon aria-hidden="true" className="h-8 w-8 text-brand-600" />
                 <h3 className="mt-4 text-lg font-bold text-ink">{item.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
+                <p className="mt-2 text-sm leading-7 text-slate-600">
+                  {item.description}
+                </p>
               </article>
             ))}
           </div>
@@ -94,11 +109,15 @@ export default async function HomePage() {
               title="Truck capacity for cargo, loading, and house shifting."
               description="Sample truck categories for Ubaid Goods Transport service routes across Pakistan."
             />
-            <Link href="/fleet" className="inline-flex items-center gap-2 text-sm font-bold text-brand-700 hover:text-brand-900">
+            <Link
+              href="/fleet"
+              className="inline-flex items-center gap-2 text-sm font-bold text-brand-700 hover:text-brand-900"
+            >
               View fleet
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </Link>
           </div>
+
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {(cms.fleet.length ? cms.fleet : fleet).map((truck) => (
               <FleetCard key={truck.name} {...truck} />
@@ -108,7 +127,12 @@ export default async function HomePage() {
       </section>
 
       <Testimonials items={cms.testimonials} />
-      <LeadCaptureSection title="Need transport, loading, or house shifting today?" description="Use the fast quote form for Lahore, Karachi, Multan, Rawalpindi, or any Pakistan route. The form is designed for Google Ads lead capture." />
+
+      <LeadCaptureSection
+        title="Need transport, loading, or house shifting today?"
+        description="Use the fast quote form for Lahore, Karachi, Multan, Rawalpindi, or any Pakistan route. The form is designed for Google Ads lead capture."
+      />
+
       <FAQ items={cms.faqs} />
 
       <section className="section-pad bg-white">
@@ -122,7 +146,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-            <MapSection />
+      <MapSection cms={cms} />
       <Footer cms={cms} />
     </>
   );
