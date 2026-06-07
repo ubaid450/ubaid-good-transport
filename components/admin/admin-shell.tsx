@@ -24,7 +24,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen bg-slate-100">
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 border-r border-slate-200 bg-brand-900 p-4 text-white lg:block">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 overflow-y-auto border-r border-slate-200 bg-brand-900 p-4 text-white lg:block">
         <div className="rounded-lg bg-white/10 p-4">
           <p className="text-lg font-black">Ubaid Transport</p>
           <p className="mt-1 text-xs font-semibold uppercase text-blue-100">Admin Control Panel</p>
