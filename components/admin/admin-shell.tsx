@@ -26,8 +26,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-slate-100">
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-72 border-r border-slate-200 bg-brand-900 p-4 text-white lg:block">
         <div className="rounded-lg bg-white/10 p-4">
-          <p className="text-lg font-black">UGT Admin CMS</p>
-          <p className="mt-1 text-xs font-semibold uppercase text-blue-100">Content control panel</p>
+          <p className="text-lg font-black">Ubaid Transport</p>
+          <p className="mt-1 text-xs font-semibold uppercase text-blue-100">Admin Control Panel</p>
         </div>
         <nav className="mt-6 grid gap-1">
           {adminLinks.map((link) => {
