@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { ObjectId } from "mongodb";
 import { getMongoDb } from "@/lib/mongodb";
@@ -63,6 +64,22 @@ async function updateLeadStatus(formData: FormData) {
   );
 
   revalidatePath("/admin/dashboard");
+}
+
+function buildSearchFilter(search: string, status: string, fields: string[]) {
+  const filter: any = {};
+
+  if (status && status !== "all") {
+    filter.status = status;
+  }
+
+  if (search) {
+    filter.$or = fields.map((field) => ({
+      [field]: { $regex: search, $options: "i" },
+    }));
+  }
+
+  return filter;
 }
 
 function StatusForm({
@@ -137,24 +154,127 @@ function DeleteForm({
   );
 }
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams?: {
+    q?: string;
+    status?: string;
+  };
+}) {
   const db = await getMongoDb();
+
+  const search = String(searchParams?.q || "").trim();
+  const status = String(searchParams?.status || "all");
+
+  const quoteFilter = buildSearchFilter(search, status, [
+    "name",
+    "phone",
+    "pickup",
+    "delivery",
+    "truckType",
+    "serviceNeeded",
+    "details",
+  ]);
+
+  const contactFilter = buildSearchFilter(search, status, [
+    "name",
+    "email",
+    "phone",
+    "message",
+  ]);
 
   const quotes = await db
     .collection("quote_submissions")
-    .find({})
+    .find(quoteFilter)
     .sort({ createdAt: -1 })
     .toArray();
 
   const contacts = await db
     .collection("contact_submissions")
-    .find({})
+    .find(contactFilter)
     .sort({ createdAt: -1 })
     .toArray();
 
   return (
     <div style={{ padding: "40px" }}>
       <h1>Admin Dashboard</h1>
+
+      <form
+        method="GET"
+        style={{
+          marginTop: "20px",
+          display: "flex",
+          gap: "12px",
+          alignItems: "center",
+          flexWrap: "wrap",
+          background: "white",
+          padding: "16px",
+          border: "1px solid #ddd",
+          borderRadius: "10px",
+        }}
+      >
+        <input
+          type="text"
+          name="q"
+          defaultValue={search}
+          placeholder="Search name, phone, city, message..."
+          style={{
+            minWidth: "320px",
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+          }}
+        />
+
+        <select
+          name="status"
+          defaultValue={status}
+          style={{
+            padding: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+          }}
+        >
+          <option value="all">All Status</option>
+          <option value="new">New</option>
+          <option value="contacted">Contacted</option>
+          <option value="closed">Closed</option>
+        </select>
+
+        <button
+          type="submit"
+          style={{
+            background: "#2563eb",
+            color: "white",
+            border: "none",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+        >
+          Search
+        </button>
+
+        <Link
+          href="/admin/dashboard"
+          style={{
+            background: "#64748b",
+            color: "white",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Reset
+        </Link>
+      </form>
+
+      <p style={{ marginTop: "16px", color: "#475569" }}>
+        Quote Leads: <b>{quotes.length}</b> | Contact Leads: <b>{contacts.length}</b>
+      </p>
 
       <h2 style={{ marginTop: "30px" }}>Quote Leads</h2>
 
