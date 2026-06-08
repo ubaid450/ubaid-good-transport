@@ -157,15 +157,15 @@ function DeleteForm({
 export default async function DashboardPage({
   searchParams,
 }: {
-  searchParams?: {
+  searchParams?: Promise<{
     q?: string;
     status?: string;
-  };
+  }>;
 }) {
   const db = await getMongoDb();
-
-  const search = String(searchParams?.q || "").trim();
-  const status = String(searchParams?.status || "all");
+const params = await searchParams;
+const search = String(params?.q || "").trim();
+const status = String(params?.status || "all");
 
   const quoteFilter = buildSearchFilter(search, status, [
     "name",
