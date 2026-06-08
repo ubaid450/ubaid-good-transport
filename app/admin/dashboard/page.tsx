@@ -82,6 +82,41 @@ function buildSearchFilter(search: string, status: string, fields: string[]) {
   return filter;
 }
 
+function StatCard({
+  title,
+  value,
+  color,
+}: {
+  title: string;
+  value: number;
+  color: string;
+}) {
+  return (
+    <div
+      style={{
+        background: "white",
+        border: "1px solid #e2e8f0",
+        borderLeft: `6px solid ${color}`,
+        borderRadius: "12px",
+        padding: "20px",
+        boxShadow: "0 10px 25px rgba(15, 23, 42, 0.08)",
+      }}
+    >
+      <p style={{ margin: 0, color: "#64748b", fontWeight: 700 }}>{title}</p>
+      <p
+        style={{
+          margin: "10px 0 0",
+          fontSize: "34px",
+          fontWeight: 900,
+          color: "#0f172a",
+        }}
+      >
+        {value}
+      </p>
+    </div>
+  );
+}
+
 function StatusForm({
   id,
   type,
@@ -163,9 +198,10 @@ export default async function DashboardPage({
   }>;
 }) {
   const db = await getMongoDb();
-const params = await searchParams;
-const search = String(params?.q || "").trim();
-const status = String(params?.status || "all");
+
+  const params = await searchParams;
+  const search = String(params?.q || "").trim();
+  const status = String(params?.status || "all");
 
   const quoteFilter = buildSearchFilter(search, status, [
     "name",
@@ -184,26 +220,58 @@ const status = String(params?.status || "all");
     "message",
   ]);
 
-  const quotes = await db
-    .collection("quote_submissions")
+  const quotesCollection = db.collection("quote_submissions");
+  const contactsCollection = db.collection("contact_submissions");
+
+  const quotes = await quotesCollection
     .find(quoteFilter)
     .sort({ createdAt: -1 })
     .toArray();
 
-  const contacts = await db
-    .collection("contact_submissions")
+  const contacts = await contactsCollection
     .find(contactFilter)
     .sort({ createdAt: -1 })
     .toArray();
+
+  const totalQuotes = await quotesCollection.countDocuments({});
+  const totalContacts = await contactsCollection.countDocuments({});
+
+  const quoteNew = await quotesCollection.countDocuments({ status: "new" });
+  const contactNew = await contactsCollection.countDocuments({ status: "new" });
+
+  const quoteContacted = await quotesCollection.countDocuments({ status: "contacted" });
+  const contactContacted = await contactsCollection.countDocuments({ status: "contacted" });
+
+  const quoteClosed = await quotesCollection.countDocuments({ status: "closed" });
+  const contactClosed = await contactsCollection.countDocuments({ status: "closed" });
+
+  const totalNew = quoteNew + contactNew;
+  const totalContacted = quoteContacted + contactContacted;
+  const totalClosed = quoteClosed + contactClosed;
 
   return (
     <div style={{ padding: "40px" }}>
       <h1>Admin Dashboard</h1>
 
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: "16px",
+          marginTop: "24px",
+        }}
+      >
+        <StatCard title="Total Quote Leads" value={totalQuotes} color="#2563eb" />
+        <StatCard title="Total Contact Leads" value={totalContacts} color="#16a34a" />
+        <StatCard title="New Leads" value={totalNew} color="#f59e0b" />
+        <StatCard title="Contacted Leads" value={totalContacted} color="#7c3aed" />
+        <StatCard title="Closed Leads" value={totalClosed} color="#dc2626" />
+      </div>
+
       <form
         method="GET"
         style={{
-          marginTop: "20px",
+          marginTop: "24px",
           display: "flex",
           gap: "12px",
           alignItems: "center",
@@ -273,7 +341,8 @@ const status = String(params?.status || "all");
       </form>
 
       <p style={{ marginTop: "16px", color: "#475569" }}>
-        Quote Leads: <b>{quotes.length}</b> | Contact Leads: <b>{contacts.length}</b>
+        Showing Quote Leads: <b>{quotes.length}</b> | Showing Contact Leads:{" "}
+        <b>{contacts.length}</b>
       </p>
 
       <h2 style={{ marginTop: "30px" }}>Quote Leads</h2>
