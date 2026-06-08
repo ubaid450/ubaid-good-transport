@@ -9,11 +9,19 @@ export default async function DashboardPage() {
     .sort({ createdAt: -1 })
     .toArray();
 
+  const contacts = await db
+    .collection("contact_submissions")
+    .find({})
+    .sort({ createdAt: -1 })
+    .toArray();
+
   return (
     <div style={{ padding: "40px" }}>
       <h1>Admin Dashboard</h1>
 
-      <table border={1} cellPadding={10} style={{ marginTop: "20px" }}>
+      <h2 style={{ marginTop: "30px" }}>Quote Leads</h2>
+
+      <table border={1} cellPadding={10} style={{ marginTop: "20px", width: "100%" }}>
         <thead>
           <tr>
             <th>Name</th>
@@ -38,6 +46,30 @@ export default async function DashboardPage() {
               <td>{quote.truckType}</td>
               <td>{quote.serviceNeeded}</td>
               <td>{quote.details}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h2 style={{ marginTop: "50px" }}>Contact Leads</h2>
+
+      <table border={1} cellPadding={10} style={{ marginTop: "20px", width: "100%" }}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {contacts.map((contact: any) => (
+            <tr key={contact._id}>
+              <td>{contact.name}</td>
+              <td>{contact.email}</td>
+              <td>{contact.phone}</td>
+              <td>{contact.message}</td>
             </tr>
           ))}
         </tbody>
