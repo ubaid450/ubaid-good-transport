@@ -28,6 +28,115 @@ async function deleteLead(formData: FormData) {
   revalidatePath("/admin/dashboard");
 }
 
+async function updateLeadStatus(formData: FormData) {
+  "use server";
+
+  const id = String(formData.get("id") || "");
+  const type = String(formData.get("type") || "");
+  const status = String(formData.get("status") || "new");
+
+  if (!id || !ObjectId.isValid(id)) return;
+
+  const allowedStatuses = ["new", "contacted", "closed"];
+
+  if (!allowedStatuses.includes(status)) return;
+
+  const collection =
+    type === "quote"
+      ? "quote_submissions"
+      : type === "contact"
+      ? "contact_submissions"
+      : "";
+
+  if (!collection) return;
+
+  const db = await getMongoDb();
+
+  await db.collection(collection).updateOne(
+    { _id: new ObjectId(id) },
+    {
+      $set: {
+        status,
+        updatedAt: new Date(),
+      },
+    }
+  );
+
+  revalidatePath("/admin/dashboard");
+}
+
+function StatusForm({
+  id,
+  type,
+  status,
+}: {
+  id: string;
+  type: "quote" | "contact";
+  status?: string;
+}) {
+  return (
+    <form action={updateLeadStatus}>
+      <input type="hidden" name="id" value={id} />
+      <input type="hidden" name="type" value={type} />
+      <select
+        name="status"
+        defaultValue={status || "new"}
+        style={{
+          padding: "8px",
+          borderRadius: "6px",
+          border: "1px solid #ccc",
+        }}
+      >
+        <option value="new">New</option>
+        <option value="contacted">Contacted</option>
+        <option value="closed">Closed</option>
+      </select>
+      <button
+        type="submit"
+        style={{
+          marginLeft: "8px",
+          background: "#2563eb",
+          color: "white",
+          border: "none",
+          padding: "8px 12px",
+          borderRadius: "6px",
+          cursor: "pointer",
+        }}
+      >
+        Save
+      </button>
+    </form>
+  );
+}
+
+function DeleteForm({
+  id,
+  type,
+}: {
+  id: string;
+  type: "quote" | "contact";
+}) {
+  return (
+    <form action={deleteLead}>
+      <input type="hidden" name="id" value={id} />
+      <input type="hidden" name="type" value={type} />
+      <button
+        type="submit"
+        style={{
+          background: "#dc2626",
+          color: "white",
+          border: "none",
+          padding: "8px 12px",
+          borderRadius: "6px",
+          cursor: "pointer",
+        }}
+      >
+        Delete
+      </button>
+    </form>
+  );
+}
+
 export default async function DashboardPage() {
   const db = await getMongoDb();
 
@@ -60,42 +169,34 @@ export default async function DashboardPage() {
             <th>Truck</th>
             <th>Service</th>
             <th>Details</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {quotes.map((quote: any) => (
-            <tr key={quote._id.toString()}>
-              <td>{quote.name}</td>
-              <td>{quote.phone}</td>
-              <td>{quote.pickup}</td>
-              <td>{quote.pickupDate}</td>
-              <td>{quote.delivery}</td>
-              <td>{quote.truckType}</td>
-              <td>{quote.serviceNeeded}</td>
-              <td>{quote.details}</td>
-              <td>
-                <form action={deleteLead}>
-                  <input type="hidden" name="id" value={quote._id.toString()} />
-                  <input type="hidden" name="type" value="quote" />
-                  <button
-                    type="submit"
-                    style={{
-                      background: "#dc2626",
-                      color: "white",
-                      border: "none",
-                      padding: "8px 12px",
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Delete
-                  </button>
-                </form>
-              </td>
-            </tr>
-          ))}
+          {quotes.map((quote: any) => {
+            const id = quote._id.toString();
+
+            return (
+              <tr key={id}>
+                <td>{quote.name}</td>
+                <td>{quote.phone}</td>
+                <td>{quote.pickup}</td>
+                <td>{quote.pickupDate}</td>
+                <td>{quote.delivery}</td>
+                <td>{quote.truckType}</td>
+                <td>{quote.serviceNeeded}</td>
+                <td>{quote.details}</td>
+                <td>
+                  <StatusForm id={id} type="quote" status={quote.status} />
+                </td>
+                <td>
+                  <DeleteForm id={id} type="quote" />
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
@@ -108,38 +209,30 @@ export default async function DashboardPage() {
             <th>Email</th>
             <th>Phone</th>
             <th>Message</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {contacts.map((contact: any) => (
-            <tr key={contact._id.toString()}>
-              <td>{contact.name}</td>
-              <td>{contact.email}</td>
-              <td>{contact.phone}</td>
-              <td>{contact.message}</td>
-              <td>
-                <form action={deleteLead}>
-                  <input type="hidden" name="id" value={contact._id.toString()} />
-                  <input type="hidden" name="type" value="contact" />
-                  <button
-                    type="submit"
-                    style={{
-                      background: "#dc2626",
-                      color: "white",
-                      border: "none",
-                      padding: "8px 12px",
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Delete
-                  </button>
-                </form>
-              </td>
-            </tr>
-          ))}
+          {contacts.map((contact: any) => {
+            const id = contact._id.toString();
+
+            return (
+              <tr key={id}>
+                <td>{contact.name}</td>
+                <td>{contact.email}</td>
+                <td>{contact.phone}</td>
+                <td>{contact.message}</td>
+                <td>
+                  <StatusForm id={id} type="contact" status={contact.status} />
+                </td>
+                <td>
+                  <DeleteForm id={id} type="contact" />
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
