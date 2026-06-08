@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getMongoDb } from "@/lib/mongodb";
-import { sendLeadEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -40,18 +39,6 @@ export async function POST(request: Request) {
       userAgent: request.headers.get("user-agent") || "",
       referrer: request.headers.get("referer") || "",
     });
-
-    await sendLeadEmail(
-      `New Contact Lead - ${contact.name}`,
-      `
-        <h2>New Contact Lead</h2>
-        <p><b>Name:</b> ${contact.name}</p>
-        <p><b>Email:</b> ${contact.email}</p>
-        <p><b>Phone:</b> ${contact.phone}</p>
-        <p><b>Message:</b></p>
-        <p>${contact.message}</p>
-      `
-    );
 
     return NextResponse.json(
       {

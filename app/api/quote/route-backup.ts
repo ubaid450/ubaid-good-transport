@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { getMongoDb } from "@/lib/mongodb";
-import { sendLeadEmail } from "@/lib/email";
 
 export const runtime = "nodejs";
 
@@ -15,12 +14,7 @@ type QuotePayload = {
   details?: string;
 };
 
-const requiredFields: Array<keyof QuotePayload> = [
-  "truckType",
-  "serviceNeeded",
-  "pickupDate",
-  "details",
-];
+const requiredFields: Array<keyof QuotePayload> = ["truckType", "serviceNeeded", "pickupDate", "details"];
 
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -38,20 +32,23 @@ export async function POST(request: Request) {
       truckType: clean(body.truckType),
       serviceNeeded: clean(body.serviceNeeded),
       pickupDate: clean(body.pickupDate),
-      details: clean(body.details),
+      details: clean(body.details)
     };
 
     const missingFields = requiredFields.filter((field) => !quote[field]);
 
     if (missingFields.length) {
       return NextResponse.json(
-        { success: false, error: "Missing required fields", fields: missingFields },
+        {
+          success: false,
+          error: "Missing required fields",
+          fields: missingFields
+        },
         { status: 400 }
       );
     }
 
     const db = await getMongoDb();
-
     const result = await db.collection("quote_submissions").insertOne({
       ...quote,
       source: "website_quote_form",
@@ -59,40 +56,30 @@ export async function POST(request: Request) {
       createdAt: new Date(),
       updatedAt: new Date(),
       userAgent: request.headers.get("user-agent") || "",
-      referrer: request.headers.get("referer") || "",
+      referrer: request.headers.get("referer") || ""
     });
-
-    await sendLeadEmail(
-      `New Quote Lead - ${quote.phone || quote.name || "Website"}`,
-      `
-        <h2>New Quote Lead</h2>
-        <p><b>Name:</b> ${quote.name}</p>
-        <p><b>Phone:</b> ${quote.phone}</p>
-        <p><b>Pickup:</b> ${quote.pickup}</p>
-        <p><b>Delivery:</b> ${quote.delivery}</p>
-        <p><b>Truck Type:</b> ${quote.truckType}</p>
-        <p><b>Service:</b> ${quote.serviceNeeded}</p>
-        <p><b>Pickup Date:</b> ${quote.pickupDate}</p>
-        <p><b>Details:</b> ${quote.details}</p>
-      `
-    );
 
     return NextResponse.json(
       {
         success: true,
         message: "Quote request submitted successfully.",
-        id: result.insertedId.toString(),
+        id: result.insertedId.toString()
       },
       { status: 201 }
     );
   } catch (error) {
     console.error("Quote submission failed", error);
 
-    const message =
-      error instanceof Error && error.message === "MONGODB_URI is not configured"
-        ? "Quote storage is not configured."
-        : "Unable to submit quote request. Please try again.";
+    const message = error instanceof Error && error.message === "MONGODB_URI is not configured"
+      ? "Quote storage is not configured."
+      : "Unable to submit quote request. Please try again.";
 
-    return NextResponse.json({ success: false, error: message }, { status: 500 });
+    return NextResponse.json(
+      {
+        success: false,
+        error: message
+      },
+      { status: 500 }
+    );
   }
 }
