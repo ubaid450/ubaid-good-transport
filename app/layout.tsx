@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { WhatsAppButton } from "@/components/whatsapp-button";
 import { StickyLeadBar } from "@/components/sticky-lead-bar";
 
 export const metadata: Metadata = {
@@ -18,8 +17,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-
-        <WhatsAppButton />
         <StickyLeadBar />
       </body>
     </html>
