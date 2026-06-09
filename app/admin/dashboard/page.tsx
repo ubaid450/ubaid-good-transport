@@ -66,6 +66,39 @@ async function updateLeadStatus(formData: FormData) {
   revalidatePath("/admin/dashboard");
 }
 
+async function updateLeadNote(formData: FormData) {
+  "use server";
+
+  const id = String(formData.get("id") || "");
+  const type = String(formData.get("type") || "");
+  const note = String(formData.get("note") || "").trim();
+
+  if (!id || !ObjectId.isValid(id)) return;
+
+  const collection =
+    type === "quote"
+      ? "quote_submissions"
+      : type === "contact"
+      ? "contact_submissions"
+      : "";
+
+  if (!collection) return;
+
+  const db = await getMongoDb();
+
+  await db.collection(collection).updateOne(
+    { _id: new ObjectId(id) },
+    {
+      $set: {
+        note,
+        updatedAt: new Date(),
+      },
+    }
+  );
+
+  revalidatePath("/admin/dashboard");
+}
+
 function buildSearchFilter(search: string, status: string, fields: string[]) {
   const filter: any = {};
 
@@ -103,14 +136,7 @@ function StatCard({
       }}
     >
       <p style={{ margin: 0, color: "#64748b", fontWeight: 700 }}>{title}</p>
-      <p
-        style={{
-          margin: "10px 0 0",
-          fontSize: "34px",
-          fontWeight: 900,
-          color: "#0f172a",
-        }}
-      >
+      <p style={{ margin: "10px 0 0", fontSize: "34px", fontWeight: 900, color: "#0f172a" }}>
         {value}
       </p>
     </div>
@@ -130,32 +156,62 @@ function StatusForm({
     <form action={updateLeadStatus}>
       <input type="hidden" name="id" value={id} />
       <input type="hidden" name="type" value={type} />
-      <select
-        name="status"
-        defaultValue={status || "new"}
-        style={{
-          padding: "8px",
-          borderRadius: "6px",
-          border: "1px solid #ccc",
-        }}
-      >
+      <select name="status" defaultValue={status || "new"} style={{ padding: "8px", borderRadius: "6px", border: "1px solid #ccc" }}>
         <option value="new">New</option>
         <option value="contacted">Contacted</option>
         <option value="closed">Closed</option>
       </select>
+      <button type="submit" style={{ marginLeft: "8px", background: "#2563eb", color: "white", border: "none", padding: "8px 12px", borderRadius: "6px", cursor: "pointer" }}>
+        Save
+      </button>
+    </form>
+  );
+}
+
+function NoteForm({
+  id,
+  type,
+  note,
+}: {
+  id: string;
+  type: "quote" | "contact";
+  note?: string;
+}) {
+  return (
+    <form action={updateLeadNote}>
+      <input type="hidden" name="id" value={id} />
+      <input type="hidden" name="type" value={type} />
+
+      <textarea
+        name="note"
+        defaultValue={note || ""}
+        placeholder="Add note..."
+        rows={3}
+        style={{
+          width: "220px",
+          padding: "8px",
+          borderRadius: "6px",
+          border: "1px solid #ccc",
+          fontSize: "13px",
+        }}
+      />
+
+      <br />
+
       <button
         type="submit"
         style={{
-          marginLeft: "8px",
-          background: "#2563eb",
+          marginTop: "6px",
+          background: "#0f766e",
           color: "white",
           border: "none",
-          padding: "8px 12px",
+          padding: "7px 12px",
           borderRadius: "6px",
           cursor: "pointer",
+          fontWeight: "bold",
         }}
       >
-        Save
+        Save Note
       </button>
     </form>
   );
@@ -172,22 +228,13 @@ function DeleteForm({
     <form action={deleteLead}>
       <input type="hidden" name="id" value={id} />
       <input type="hidden" name="type" value={type} />
-      <button
-        type="submit"
-        style={{
-          background: "#dc2626",
-          color: "white",
-          border: "none",
-          padding: "8px 12px",
-          borderRadius: "6px",
-          cursor: "pointer",
-        }}
-      >
+      <button type="submit" style={{ background: "#dc2626", color: "white", border: "none", padding: "8px 12px", borderRadius: "6px", cursor: "pointer" }}>
         Delete
       </button>
     </form>
   );
 }
+
 function LeadQuickActions({ phone }: { phone?: string }) {
   const cleanPhone = String(phone || "").replace(/\D/g, "");
   const whatsappPhone = cleanPhone.startsWith("0")
@@ -197,40 +244,18 @@ function LeadQuickActions({ phone }: { phone?: string }) {
   if (!cleanPhone) return null;
 
   return (
-    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-      <a
-        href={`tel:${cleanPhone}`}
-        style={{
-          background: "#2563eb",
-          color: "white",
-          padding: "7px 10px",
-          borderRadius: "6px",
-          textDecoration: "none",
-          fontWeight: "bold",
-          fontSize: "13px",
-        }}
-      >
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "6px" }}>
+      <a href={`tel:${cleanPhone}`} style={{ background: "#2563eb", color: "white", padding: "7px 10px", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "13px" }}>
         Call
       </a>
 
-      <a
-        href={`https://wa.me/${whatsappPhone}`}
-        target="_blank"
-        style={{
-          background: "#16a34a",
-          color: "white",
-          padding: "7px 10px",
-          borderRadius: "6px",
-          textDecoration: "none",
-          fontWeight: "bold",
-          fontSize: "13px",
-        }}
-      >
+      <a href={`https://wa.me/${whatsappPhone}`} target="_blank" style={{ background: "#16a34a", color: "white", padding: "7px 10px", borderRadius: "6px", textDecoration: "none", fontWeight: "bold", fontSize: "13px" }}>
         WhatsApp
       </a>
     </div>
   );
 }
+
 export default async function DashboardPage({
   searchParams,
 }: {
@@ -253,6 +278,7 @@ export default async function DashboardPage({
     "truckType",
     "serviceNeeded",
     "details",
+    "note",
   ]);
 
   const contactFilter = buildSearchFilter(search, status, [
@@ -260,20 +286,14 @@ export default async function DashboardPage({
     "email",
     "phone",
     "message",
+    "note",
   ]);
 
   const quotesCollection = db.collection("quote_submissions");
   const contactsCollection = db.collection("contact_submissions");
 
-  const quotes = await quotesCollection
-    .find(quoteFilter)
-    .sort({ createdAt: -1 })
-    .toArray();
-
-  const contacts = await contactsCollection
-    .find(contactFilter)
-    .sort({ createdAt: -1 })
-    .toArray();
+  const quotes = await quotesCollection.find(quoteFilter).sort({ createdAt: -1 }).toArray();
+  const contacts = await contactsCollection.find(contactFilter).sort({ createdAt: -1 }).toArray();
 
   const totalQuotes = await quotesCollection.countDocuments({});
   const totalContacts = await contactsCollection.countDocuments({});
@@ -294,29 +314,12 @@ export default async function DashboardPage({
   return (
     <div style={{ padding: "40px" }}>
       <h1>Admin Dashboard</h1>
-     <a
-  href="/api/admin/export-leads"
-  style={{
-    display: "inline-block",
-    marginTop: "16px",
-    background: "#16a34a",
-    color: "white",
-    padding: "10px 16px",
-    borderRadius: "8px",
-    textDecoration: "none",
-    fontWeight: "bold",
-       }}
->
+
+      <a href="/api/admin/export-leads" style={{ display: "inline-block", marginTop: "16px", background: "#16a34a", color: "white", padding: "10px 16px", borderRadius: "8px", textDecoration: "none", fontWeight: "bold" }}>
         Download Excel
-       </a>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-          gap: "16px",
-          marginTop: "24px",
-        }}
-      >
+      </a>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "16px", marginTop: "24px" }}>
         <StatCard title="Total Quote Leads" value={totalQuotes} color="#2563eb" />
         <StatCard title="Total Contact Leads" value={totalContacts} color="#16a34a" />
         <StatCard title="New Leads" value={totalNew} color="#f59e0b" />
@@ -324,74 +327,21 @@ export default async function DashboardPage({
         <StatCard title="Closed Leads" value={totalClosed} color="#dc2626" />
       </div>
 
-      <form
-        method="GET"
-        style={{
-          marginTop: "24px",
-          display: "flex",
-          gap: "12px",
-          alignItems: "center",
-          flexWrap: "wrap",
-          background: "white",
-          padding: "16px",
-          border: "1px solid #ddd",
-          borderRadius: "10px",
-        }}
-      >
-        <input
-          type="text"
-          name="q"
-          defaultValue={search}
-          placeholder="Search name, phone, city, message..."
-          style={{
-            minWidth: "320px",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-          }}
-        />
+      <form method="GET" style={{ marginTop: "24px", display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", background: "white", padding: "16px", border: "1px solid #ddd", borderRadius: "10px" }}>
+        <input type="text" name="q" defaultValue={search} placeholder="Search name, phone, city, message, note..." style={{ minWidth: "320px", padding: "10px", border: "1px solid #ccc", borderRadius: "8px" }} />
 
-        <select
-          name="status"
-          defaultValue={status}
-          style={{
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-          }}
-        >
+        <select name="status" defaultValue={status} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "8px" }}>
           <option value="all">All Status</option>
           <option value="new">New</option>
           <option value="contacted">Contacted</option>
           <option value="closed">Closed</option>
         </select>
 
-        <button
-          type="submit"
-          style={{
-            background: "#2563eb",
-            color: "white",
-            border: "none",
-            padding: "10px 16px",
-            borderRadius: "8px",
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
+        <button type="submit" style={{ background: "#2563eb", color: "white", border: "none", padding: "10px 16px", borderRadius: "8px", cursor: "pointer", fontWeight: "bold" }}>
           Search
         </button>
 
-        <Link
-          href="/admin/dashboard"
-          style={{
-            background: "#64748b",
-            color: "white",
-            padding: "10px 16px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontWeight: "bold",
-          }}
-        >
+        <Link href="/admin/dashboard" style={{ background: "#64748b", color: "white", padding: "10px 16px", borderRadius: "8px", textDecoration: "none", fontWeight: "bold" }}>
           Reset
         </Link>
       </form>
@@ -415,6 +365,7 @@ export default async function DashboardPage({
             <th>Service</th>
             <th>Details</th>
             <th>Status</th>
+            <th>Note</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -427,9 +378,9 @@ export default async function DashboardPage({
               <tr key={id}>
                 <td>{quote.name}</td>
                 <td>
-               <div>{quote.phone}</div>
-               <LeadQuickActions phone={quote.phone} />
-               </td>
+                  <div>{quote.phone}</div>
+                  <LeadQuickActions phone={quote.phone} />
+                </td>
                 <td>{quote.pickup}</td>
                 <td>{quote.pickupDate}</td>
                 <td>{quote.delivery}</td>
@@ -438,6 +389,9 @@ export default async function DashboardPage({
                 <td>{quote.details}</td>
                 <td>
                   <StatusForm id={id} type="quote" status={quote.status} />
+                </td>
+                <td>
+                  <NoteForm id={id} type="quote" note={quote.note} />
                 </td>
                 <td>
                   <DeleteForm id={id} type="quote" />
@@ -458,6 +412,7 @@ export default async function DashboardPage({
             <th>Phone</th>
             <th>Message</th>
             <th>Status</th>
+            <th>Note</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -471,12 +426,15 @@ export default async function DashboardPage({
                 <td>{contact.name}</td>
                 <td>{contact.email}</td>
                 <td>
-               <div>{contact.phone}</div>
-               <LeadQuickActions phone={contact.phone} />
-               </td>
+                  <div>{contact.phone}</div>
+                  <LeadQuickActions phone={contact.phone} />
+                </td>
                 <td>{contact.message}</td>
                 <td>
                   <StatusForm id={id} type="contact" status={contact.status} />
+                </td>
+                <td>
+                  <NoteForm id={id} type="contact" note={contact.note} />
                 </td>
                 <td>
                   <DeleteForm id={id} type="contact" />
