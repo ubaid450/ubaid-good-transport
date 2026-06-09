@@ -239,52 +239,6 @@ export default async function DashboardPage({ searchParams }: { searchParams?: P
   const todayLeads = todayQuotes + todayContacts;
   const weekLeads = weekQuotes + weekContacts;
   const monthLeads = monthQuotes + monthContacts;
-    const allQuotes = await quotesCollection.find({}).toArray();
-  const allContacts = await contactsCollection.find({}).toArray();
-
-  const monthlyMap = new Map<
-    string,
-    { month: string; quotes: number; contacts: number; total: number }
-  >();
-
-  function addMonthlyLead(dateValue: any, type: "quote" | "contact") {
-    if (!dateValue) return;
-
-    const date = new Date(dateValue);
-    if (Number.isNaN(date.getTime())) return;
-
-    const month = date.toLocaleString("en-US", {
-      month: "short",
-      year: "numeric",
-    });
-
-    const current =
-      monthlyMap.get(month) || {
-        month,
-        quotes: 0,
-        contacts: 0,
-        total: 0,
-      };
-
-    if (type === "quote") {
-      current.quotes += 1;
-    } else {
-      current.contacts += 1;
-    }
-
-    current.total += 1;
-    monthlyMap.set(month, current);
-  }
-
-  for (const quote of allQuotes as any[]) {
-    addMonthlyLead(quote.createdAt, "quote");
-  }
-
-  for (const contact of allContacts as any[]) {
-    addMonthlyLead(contact.createdAt, "contact");
-  }
-
-  const monthlyData = Array.from(monthlyMap.values()).slice(-6);
   const today = new Date().toISOString().slice(0, 10);
 
   const allFollowUps = [
@@ -320,12 +274,11 @@ export default async function DashboardPage({ searchParams }: { searchParams?: P
       <FollowUpBox title="Overdue Follow-Ups" leads={overdueFollowUps} color="#dc2626" />
      
      <LeadCharts
-     totalQuotes={totalQuotes}
-     totalContacts={totalContacts}
-     totalNew={totalNew}
-     totalContacted={totalContacted}
-     totalClosed={totalClosed}
-      monthlyData={monthlyData}
+      totalQuotes={totalQuotes}
+      totalContacts={totalContacts}
+      totalNew={totalNew}
+      totalContacted={totalContacted}
+      totalClosed={totalClosed}
 />
       <form method="GET" style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", background: "white", padding: 16, border: "1px solid #ddd", borderRadius: 10 }}>
         <input type="text" name="q" defaultValue={search} placeholder="Search name, phone, city, message, note..." style={{ minWidth: 320, padding: 10, border: "1px solid #ccc", borderRadius: 8 }} />
