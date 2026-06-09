@@ -188,7 +188,49 @@ function DeleteForm({
     </form>
   );
 }
+function LeadQuickActions({ phone }: { phone?: string }) {
+  const cleanPhone = String(phone || "").replace(/\D/g, "");
+  const whatsappPhone = cleanPhone.startsWith("0")
+    ? `92${cleanPhone.slice(1)}`
+    : cleanPhone;
 
+  if (!cleanPhone) return null;
+
+  return (
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+      <a
+        href={`tel:${cleanPhone}`}
+        style={{
+          background: "#2563eb",
+          color: "white",
+          padding: "7px 10px",
+          borderRadius: "6px",
+          textDecoration: "none",
+          fontWeight: "bold",
+          fontSize: "13px",
+        }}
+      >
+        Call
+      </a>
+
+      <a
+        href={`https://wa.me/${whatsappPhone}`}
+        target="_blank"
+        style={{
+          background: "#16a34a",
+          color: "white",
+          padding: "7px 10px",
+          borderRadius: "6px",
+          textDecoration: "none",
+          fontWeight: "bold",
+          fontSize: "13px",
+        }}
+      >
+        WhatsApp
+      </a>
+    </div>
+  );
+}
 export default async function DashboardPage({
   searchParams,
 }: {
@@ -384,7 +426,10 @@ export default async function DashboardPage({
             return (
               <tr key={id}>
                 <td>{quote.name}</td>
-                <td>{quote.phone}</td>
+                <td>
+               <div>{quote.phone}</div>
+               <LeadQuickActions phone={quote.phone} />
+               </td>
                 <td>{quote.pickup}</td>
                 <td>{quote.pickupDate}</td>
                 <td>{quote.delivery}</td>
@@ -425,7 +470,10 @@ export default async function DashboardPage({
               <tr key={id}>
                 <td>{contact.name}</td>
                 <td>{contact.email}</td>
-                <td>{contact.phone}</td>
+                <td>
+               <div>{contact.phone}</div>
+               <LeadQuickActions phone={contact.phone} />
+               </td>
                 <td>{contact.message}</td>
                 <td>
                   <StatusForm id={id} type="contact" status={contact.status} />
