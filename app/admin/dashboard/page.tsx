@@ -252,7 +252,21 @@ export default async function DashboardPage({
   return (
     <div style={{ padding: "40px" }}>
       <h1>Admin Dashboard</h1>
-
+     <a
+  href="/api/admin/export-leads"
+  style={{
+    display: "inline-block",
+    marginTop: "16px",
+    background: "#16a34a",
+    color: "white",
+    padding: "10px 16px",
+    borderRadius: "8px",
+    textDecoration: "none",
+    fontWeight: "bold",
+       }}
+>
+        Download Excel
+       </a>
       <div
         style={{
           display: "grid",
