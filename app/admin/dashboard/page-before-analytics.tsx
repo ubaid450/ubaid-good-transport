@@ -2,7 +2,7 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { ObjectId } from "mongodb";
 import { getMongoDb } from "@/lib/mongodb";
-import LeadCharts from "@/components/admin/lead-charts";
+
 async function getCollection(type: string) {
   return type === "quote"
     ? "quote_submissions"
@@ -200,45 +200,7 @@ export default async function DashboardPage({ searchParams }: { searchParams?: P
   const totalNew = (await quotesCollection.countDocuments({ status: "new" })) + (await contactsCollection.countDocuments({ status: "new" }));
   const totalContacted = (await quotesCollection.countDocuments({ status: "contacted" })) + (await contactsCollection.countDocuments({ status: "contacted" }));
   const totalClosed = (await quotesCollection.countDocuments({ status: "closed" })) + (await contactsCollection.countDocuments({ status: "closed" }));
-  const totalLeads = totalQuotes + totalContacts;
-  const conversionRate =
-    totalLeads > 0 ? Math.round((totalClosed / totalLeads) * 100) : 0;
 
-  const startOfToday = new Date();
-  startOfToday.setHours(0, 0, 0, 0);
-
-  const startOfWeek = new Date();
-  startOfWeek.setDate(startOfWeek.getDate() - 7);
-  startOfWeek.setHours(0, 0, 0, 0);
-
-  const startOfMonth = new Date();
-  startOfMonth.setDate(1);
-  startOfMonth.setHours(0, 0, 0, 0);
-
-  const todayQuotes = await quotesCollection.countDocuments({
-    createdAt: { $gte: startOfToday },
-  });
-  const todayContacts = await contactsCollection.countDocuments({
-    createdAt: { $gte: startOfToday },
-  });
-
-  const weekQuotes = await quotesCollection.countDocuments({
-    createdAt: { $gte: startOfWeek },
-  });
-  const weekContacts = await contactsCollection.countDocuments({
-    createdAt: { $gte: startOfWeek },
-  });
-
-  const monthQuotes = await quotesCollection.countDocuments({
-    createdAt: { $gte: startOfMonth },
-  });
-  const monthContacts = await contactsCollection.countDocuments({
-    createdAt: { $gte: startOfMonth },
-  });
-
-  const todayLeads = todayQuotes + todayContacts;
-  const weekLeads = weekQuotes + weekContacts;
-  const monthLeads = monthQuotes + monthContacts;
   const today = new Date().toISOString().slice(0, 10);
 
   const allFollowUps = [
@@ -260,26 +222,12 @@ export default async function DashboardPage({ searchParams }: { searchParams?: P
         <StatCard title="Total Contact Leads" value={totalContacts} color="#16a34a" />
         <StatCard title="New Leads" value={totalNew} color="#f59e0b" />
         <StatCard title="Contacted Leads" value={totalContacted} color="#7c3aed" />
-       <StatCard title="Closed Leads" value={totalClosed} color="#dc2626" />
-
-       <StatCard title="Total Leads" value={totalLeads} color="#0f172a" />
-       <StatCard title="Conversion Rate %" value={conversionRate} color="#0891b2" />
-       <StatCard title="Today Leads" value={todayLeads} color="#ea580c" />
-       <StatCard title="Last 7 Days Leads" value={weekLeads} color="#4f46e5" />
-       <StatCard title="This Month Leads" value={monthLeads} color="#65a30d" />
-
-       </div>
+        <StatCard title="Closed Leads" value={totalClosed} color="#dc2626" />
+      </div>
 
       <FollowUpBox title="Today's Follow-Ups" leads={todayFollowUps} color="#f59e0b" />
       <FollowUpBox title="Overdue Follow-Ups" leads={overdueFollowUps} color="#dc2626" />
-     
-     <LeadCharts
-      totalQuotes={totalQuotes}
-      totalContacts={totalContacts}
-      totalNew={totalNew}
-      totalContacted={totalContacted}
-      totalClosed={totalClosed}
-/>
+
       <form method="GET" style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", background: "white", padding: 16, border: "1px solid #ddd", borderRadius: 10 }}>
         <input type="text" name="q" defaultValue={search} placeholder="Search name, phone, city, message, note..." style={{ minWidth: 320, padding: 10, border: "1px solid #ccc", borderRadius: 8 }} />
         <select name="status" defaultValue={status} style={{ padding: 10, border: "1px solid #ccc", borderRadius: 8 }}>

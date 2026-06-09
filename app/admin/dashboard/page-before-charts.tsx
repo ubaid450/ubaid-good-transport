@@ -2,7 +2,7 @@ import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { ObjectId } from "mongodb";
 import { getMongoDb } from "@/lib/mongodb";
-import LeadCharts from "@/components/admin/lead-charts";
+
 async function getCollection(type: string) {
   return type === "quote"
     ? "quote_submissions"
@@ -272,14 +272,7 @@ export default async function DashboardPage({ searchParams }: { searchParams?: P
 
       <FollowUpBox title="Today's Follow-Ups" leads={todayFollowUps} color="#f59e0b" />
       <FollowUpBox title="Overdue Follow-Ups" leads={overdueFollowUps} color="#dc2626" />
-     
-     <LeadCharts
-      totalQuotes={totalQuotes}
-      totalContacts={totalContacts}
-      totalNew={totalNew}
-      totalContacted={totalContacted}
-      totalClosed={totalClosed}
-/>
+
       <form method="GET" style={{ marginTop: 24, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", background: "white", padding: 16, border: "1px solid #ddd", borderRadius: 10 }}>
         <input type="text" name="q" defaultValue={search} placeholder="Search name, phone, city, message, note..." style={{ minWidth: 320, padding: 10, border: "1px solid #ccc", borderRadius: 8 }} />
         <select name="status" defaultValue={status} style={{ padding: 10, border: "1px solid #ccc", borderRadius: 8 }}>
