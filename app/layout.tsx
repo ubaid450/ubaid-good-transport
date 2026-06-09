@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { StickyLeadBar } from "@/components/sticky-lead-bar";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Ubaid Goods Transport",
-  description: "Cargo, loading, logistics and house shifting services in Pakistan.",
+  description:
+    "Cargo, loading, logistics and house shifting services in Pakistan.",
 };
 
 export default function RootLayout({
@@ -18,6 +20,21 @@ export default function RootLayout({
       <body>
         {children}
         <StickyLeadBar />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KPZZ41T3W0"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KPZZ41T3W0');
+          `}
+        </Script>
       </body>
     </html>
   );
