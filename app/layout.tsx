@@ -6,8 +6,10 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Ubaid Goods Transport",
-  description:
-    "Cargo, loading, logistics and house shifting services in Pakistan.",
+  description: "Cargo, loading, logistics and house shifting services in Pakistan.",
+  verification: {
+    google: "t-3jB4OA5_d4jtx61Znpl1GQPfgJUsauilzZVi1-qtk",
+  },
 };
 
 export default function RootLayout({
