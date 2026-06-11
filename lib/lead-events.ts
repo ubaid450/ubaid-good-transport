@@ -7,9 +7,16 @@ const QUOTE_CONVERSION_LABEL =
 const WHATSAPP_CONVERSION_LABEL =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_WHATSAPP_CONVERSION_LABEL;
 
+const CALL_CONVERSION_LABEL =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CALL_CONVERSION_LABEL;
+
 function getGoogleAdsLabel(eventName: string) {
   if (eventName.includes("whatsapp")) {
     return WHATSAPP_CONVERSION_LABEL;
+  }
+
+  if (eventName.includes("call") || eventName.includes("phone")) {
+    return CALL_CONVERSION_LABEL;
   }
 
   if (eventName.includes("quote")) {
