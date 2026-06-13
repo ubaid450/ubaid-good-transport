@@ -30,7 +30,7 @@ export function trackLead(eventName: string) {
   if (typeof window === "undefined") return;
 
   const conversionLabel = getGoogleAdsLabel(eventName);
-
+  console.log("Lead tracking fired:", eventName, GOOGLE_ADS_ID, conversionLabel);
   if (window.gtag && GOOGLE_ADS_ID && conversionLabel) {
     window.gtag("event", "conversion", {
       send_to: `${GOOGLE_ADS_ID}/${conversionLabel}`,
