@@ -6,12 +6,35 @@ import { LeadTracking } from "@/components/lead-tracking";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Ubaid Goods Transport",
+  title: "Ubaid Goods Transport | Goods Transport Company in Pakistan",
   description:
-    "Cargo, loading, logistics and house shifting services in Pakistan.",
+    "Ubaid Goods Transport provides cargo transport, loading services, logistics, truck booking and house shifting services across Pakistan.",
   verification: {
     google: "t-3jB4OA5_d4jtx61Znpl1GQPfgJUsauilzZVi1-qtk",
   },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  name: "Ubaid Goods Transport",
+  url: "https://ubaidgoodstransport.com",
+  telephone: "+923234125101",
+  priceRange: "$$",
+  areaServed: "Pakistan",
+  description:
+    "Ubaid Goods Transport provides cargo transport, loading services, logistics, truck booking and house shifting services across Pakistan.",
+  sameAs: [
+    "https://ubaidgoodstransport.com"
+  ],
+  serviceType: [
+    "Goods Transport",
+    "Cargo Transport",
+    "House Shifting",
+    "Loading Services",
+    "Truck Booking",
+    "Logistics Services"
+  ]
 };
 
 export default function RootLayout({
@@ -24,6 +47,14 @@ export default function RootLayout({
       <body>
         {children}
         <StickyLeadBar />
+
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KPZZ41T3W0"
