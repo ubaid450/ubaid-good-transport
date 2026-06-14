@@ -63,17 +63,52 @@ export default async function HomePage() {
             align="center"
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {cms.cities.map((city) => (
-              <div
-                key={city}
-                className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm"
-              >
-                <p className="text-lg font-black text-brand-700">{city}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Cargo, loading, dispatch, and shifting support.
-                </p>
-              </div>
-            ))}
+           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+  <Link href="/lahore-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Lahore</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Lahore</p>
+  </Link>
+
+  <Link href="/karachi-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Karachi</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Karachi</p>
+  </Link>
+
+  <Link href="/islamabad-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Islamabad</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Islamabad</p>
+  </Link>
+
+  <Link href="/rawalpindi-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Rawalpindi</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Rawalpindi</p>
+  </Link>
+
+  <Link href="/faisalabad-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Faisalabad</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Faisalabad</p>
+  </Link>
+
+  <Link href="/multan-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Multan</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Multan</p>
+  </Link>
+
+  <Link href="/peshawar-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Peshawar</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Peshawar</p>
+  </Link>
+
+  <Link href="/gujranwala-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Gujranwala</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Gujranwala</p>
+  </Link>
+
+  <Link href="/sialkot-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
+    <p className="text-lg font-black text-brand-700">Sialkot</p>
+    <p className="mt-2 text-sm text-slate-600">Goods Transport Sialkot</p>
+  </Link>
+</div>
           </div>
         </div>
       </section>
