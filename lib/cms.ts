@@ -176,14 +176,14 @@ export const defaultCmsContent: CmsContent = {
       name: "Container Trucks",
       capacity: "Commercial cargo capacity",
       use: "Retail goods, cartons, palletized cargo, and intercity transport",
-      image:
+      
         image: "/images/fleet/Container-truck.png.png",
     {
       id: "flatbed",
       name: "Flatbed Trucks",
       capacity: "Heavy goods capacity",
       use: "Machinery, steel, construction material, and oversized goods",
-      image:
+      
      image: "/images/fleet/Flatbed-truck.png.png",    
     },
     {
@@ -191,7 +191,7 @@ export const defaultCmsContent: CmsContent = {
       name: "Mazda & Cargo Trucks",
       capacity: "House shifting and city cargo",
       use: "Furniture, home goods, office shifting, and local deliveries",
-      image:
+      
         image: "/images/fleet/Mazda-truck.png.png",
     },
   ],
