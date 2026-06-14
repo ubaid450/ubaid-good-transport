@@ -191,7 +191,7 @@ export default async function HomePage() {
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {(cms.fleet.length ? cms.fleet : fleet).map((truck) => (
+            {fleet.map((truck) => (
               <FleetCard key={truck.name} {...truck} />
             ))}
           </div>

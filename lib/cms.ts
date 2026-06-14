@@ -177,15 +177,14 @@ export const defaultCmsContent: CmsContent = {
       capacity: "Commercial cargo capacity",
       use: "Retail goods, cartons, palletized cargo, and intercity transport",
       image:
-        "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80",
-    },
+        image: "/images/fleet/Container-truck.png.png",
     {
       id: "flatbed",
       name: "Flatbed Trucks",
       capacity: "Heavy goods capacity",
       use: "Machinery, steel, construction material, and oversized goods",
       image:
-        "https://images.unsplash.com/photo-1586191582151-f73872dfd183?auto=format&fit=crop&w=1200&q=80",
+     image: "/images/fleet/Flatbed-truck.png.png",    
     },
     {
       id: "mazda",
@@ -193,7 +192,7 @@ export const defaultCmsContent: CmsContent = {
       capacity: "House shifting and city cargo",
       use: "Furniture, home goods, office shifting, and local deliveries",
       image:
-        "https://images.unsplash.com/photo-1556122071-e404eaedb77f?auto=format&fit=crop&w=1200&q=80",
+        image: "/images/fleet/Mazda-truck.png.png",
     },
   ],
   blogPosts: [
