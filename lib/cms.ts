@@ -178,6 +178,7 @@ export const defaultCmsContent: CmsContent = {
       use: "Retail goods, cartons, palletized cargo, and intercity transport",
       
         image: "/images/fleet/Container-truck.png.png",
+    },
     {
       id: "flatbed",
       name: "Flatbed Trucks",
