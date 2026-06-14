@@ -74,12 +74,7 @@ const cityAreas = [
     image: "/images/cities/gujranwala.jpg",
     text: "Cargo transport, commercial goods movement, loading services, and truck booking from Gujranwala.",
   },
-  {
-    city: "Sialkot",
-    href: "/sialkot-goods-transport",
-    image: "/images/cities/sialkot.jpg",
-    text: "Export cargo, commercial goods transport, truck booking, and delivery support from Sialkot.",
-  },
+ 
 ];
 
 export default async function HomePage() {
