@@ -16,6 +16,7 @@ import { TrustBadges } from "@/components/trust-badges";
 import { advantages, fleet, services } from "@/data/site";
 import { getCmsContent } from "@/lib/cms";
 import { iconMap, type IconName } from "@/lib/icon-map";
+
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -23,6 +24,63 @@ export const metadata: Metadata = {
   description:
     "Ubaid Goods Transport offers cargo transport, loading services, house shifting, truck dispatch, and logistics services in Lahore, Karachi, Multan, Rawalpindi, and all Pakistan.",
 };
+
+const cityAreas = [
+  {
+    city: "Lahore",
+    href: "/lahore-goods-transport",
+    image: "/images/cities/lahore.jpg",
+    text: "Cargo transport, truck booking, loading services, and long route delivery from Lahore.",
+  },
+  {
+    city: "Karachi",
+    href: "/karachi-goods-transport",
+    image: "/images/cities/karachi.jpg",
+    text: "Cargo transport, container movement, loading services, and long route delivery from Karachi.",
+  },
+  {
+    city: "Islamabad",
+    href: "/islamabad-goods-transport",
+    image: "/images/cities/islamabad.jpg",
+    text: "Truck booking, cargo transport, house shifting, and delivery support from Islamabad.",
+  },
+  {
+    city: "Rawalpindi",
+    href: "/rawalpindi-goods-transport",
+    image: "/images/cities/rawalpindi.jpg",
+    text: "Goods transport, loading services, house shifting, and cargo delivery from Rawalpindi.",
+  },
+  {
+    city: "Faisalabad",
+    href: "/faisalabad-goods-transport",
+    image: "/images/cities/faisalabad.jpg",
+    text: "Commercial cargo, textile goods transport, truck booking, and loading support from Faisalabad.",
+  },
+  {
+    city: "Multan",
+    href: "/multan-goods-transport",
+    image: "/images/cities/multan.jpg",
+    text: "Cargo transport, truck booking, market goods delivery, and long route service from Multan.",
+  },
+  {
+    city: "Peshawar",
+    href: "/peshawar-goods-transport",
+    image: "/images/cities/peshawar.jpg",
+    text: "Truck booking, cargo transport, loading services, and nationwide delivery from Peshawar.",
+  },
+  {
+    city: "Gujranwala",
+    href: "/gujranwala-goods-transport",
+    image: "/images/cities/gujranwala.jpg",
+    text: "Cargo transport, commercial goods movement, loading services, and truck booking from Gujranwala.",
+  },
+  {
+    city: "Sialkot",
+    href: "/sialkot-goods-transport",
+    image: "/images/cities/sialkot.jpg",
+    text: "Export cargo, commercial goods transport, truck booking, and delivery support from Sialkot.",
+  },
+];
 
 export default async function HomePage() {
   const cms = await getCmsContent();
@@ -58,57 +116,40 @@ export default async function HomePage() {
         <div className="container-pad">
           <SectionHeading
             eyebrow="Service areas"
-            title="Reliable transport coverage in major Pakistan cities."
-            description="Book cargo transport, loading, house shifting, and truck dispatch from Lahore, Karachi, Multan, Rawalpindi, and long routes all over Pakistan."
+            title="Goods transport services across major Pakistan cities."
+            description="Book cargo transport, loading, house shifting, and truck dispatch from Lahore, Karachi, Islamabad, Rawalpindi, Multan, and other major cities."
             align="center"
           />
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-  <Link href="/lahore-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Lahore</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Lahore</p>
-  </Link>
 
-  <Link href="/karachi-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Karachi</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Karachi</p>
-  </Link>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cityAreas.map((area) => (
+              <Link
+                key={area.city}
+                href={area.href}
+                className="group overflow-hidden rounded-xl border border-brand-100 bg-white shadow-sm transition hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl"
+              >
+                <div className="h-48 overflow-hidden bg-slate-200">
+                  <img
+                    src={area.image}
+                    alt={`${area.city} goods transport service`}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-  <Link href="/islamabad-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Islamabad</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Islamabad</p>
-  </Link>
-
-  <Link href="/rawalpindi-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Rawalpindi</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Rawalpindi</p>
-  </Link>
-
-  <Link href="/faisalabad-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Faisalabad</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Faisalabad</p>
-  </Link>
-
-  <Link href="/multan-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Multan</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Multan</p>
-  </Link>
-
-  <Link href="/peshawar-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Peshawar</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Peshawar</p>
-  </Link>
-
-  <Link href="/gujranwala-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Gujranwala</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Gujranwala</p>
-  </Link>
-
-  <Link href="/sialkot-goods-transport" className="rounded-lg border border-brand-100 bg-white p-5 text-center shadow-sm hover:border-brand-500">
-    <p className="text-lg font-black text-brand-700">Sialkot</p>
-    <p className="mt-2 text-sm text-slate-600">Goods Transport Sialkot</p>
-  </Link>
-</div>
+                <div className="p-5">
+                  <h3 className="text-2xl font-black text-ink">
+                    {area.city} Goods Transport
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {area.text}
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-700">
+                    View service
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
