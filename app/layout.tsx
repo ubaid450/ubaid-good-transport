@@ -21,7 +21,6 @@ const localBusinessSchema = {
   url: "https://ubaidgoodstransport.com",
   telephone: "+923234125101",
   priceRange: "$$",
-  areaServed: "Pakistan",
   description:
     "Ubaid Goods Transport provides cargo transport, loading services, logistics, truck booking and house shifting services across Pakistan.",
   sameAs: [
@@ -38,16 +37,16 @@ const localBusinessSchema = {
     "Logistics Services"
   ],
   areaServed: [
-  "Pakistan",
-  "Lahore",
-  "Karachi",
-  "Islamabad",
-  "Rawalpindi",
-  "Faisalabad",
-  "Multan",
-  "Peshawar",
-  "Gujranwala"
-],
+    "Pakistan",
+    "Lahore",
+    "Karachi",
+    "Islamabad",
+    "Rawalpindi",
+    "Faisalabad",
+    "Multan",
+    "Peshawar",
+    "Gujranwala"
+  ]
 };
 
 const breadcrumbSchema = {
