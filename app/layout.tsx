@@ -25,7 +25,9 @@ const localBusinessSchema = {
   description:
     "Ubaid Goods Transport provides cargo transport, loading services, logistics, truck booking and house shifting services across Pakistan.",
   sameAs: [
-    "https://ubaidgoodstransport.com"
+    "https://ubaidgoodstransport.com",
+    "https://web.facebook.com/profile.php?id=61586241350310",
+    "https://maps.app.goo.gl/9EdQZmouWqSntx9Z6"
   ],
   serviceType: [
     "Goods Transport",
@@ -34,6 +36,16 @@ const localBusinessSchema = {
     "Loading Services",
     "Truck Booking",
     "Logistics Services"
+  ],
+  areaServed: [
+    "Lahore",
+    "Karachi",
+    "Islamabad",
+    "Rawalpindi",
+    "Faisalabad",
+    "Multan",
+    "Peshawar",
+    "Gujranwala"
   ]
 };
 
