@@ -38,15 +38,16 @@ const localBusinessSchema = {
     "Logistics Services"
   ],
   areaServed: [
-    "Lahore",
-    "Karachi",
-    "Islamabad",
-    "Rawalpindi",
-    "Faisalabad",
-    "Multan",
-    "Peshawar",
-    "Gujranwala"
-  ]
+  "Pakistan",
+  "Lahore",
+  "Karachi",
+  "Islamabad",
+  "Rawalpindi",
+  "Faisalabad",
+  "Multan",
+  "Peshawar",
+  "Gujranwala"
+],
 };
 
 const breadcrumbSchema = {
