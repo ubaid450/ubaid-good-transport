@@ -204,7 +204,74 @@ export default async function HomePage() {
         title="Need transport, loading, or house shifting today?"
         description="Use the fast quote form for Lahore, Karachi, Multan, Rawalpindi, or any Pakistan route. The form is designed for Google Ads lead capture."
       />
+      
+      <section className="section-pad bg-brand-50">
+  <div className="container-pad">
+    <SectionHeading
+      eyebrow="Explore More"
+      title="Explore our services, cities and transport routes."
+      description="Find transport services, city-specific goods transport solutions and major cargo routes across Pakistan."
+      align="center"
+    />
 
+    <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <Link
+        href="/services"
+        className="rounded-xl border border-brand-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <h3 className="text-2xl font-bold text-ink">
+          Transport Services
+        </h3>
+
+        <p className="mt-3 text-slate-600">
+          Explore cargo transport, loading services, truck booking and
+          house shifting solutions.
+        </p>
+
+        <span className="mt-5 inline-flex items-center gap-2 font-bold text-brand-700">
+          View Services
+          <ArrowRight className="h-4 w-4" />
+        </span>
+      </Link>
+
+      <Link
+        href="/cities"
+        className="rounded-xl border border-brand-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <h3 className="text-2xl font-bold text-ink">
+          Service Cities
+        </h3>
+
+        <p className="mt-3 text-slate-600">
+          Explore goods transport services available across major Pakistan cities.
+        </p>
+
+        <span className="mt-5 inline-flex items-center gap-2 font-bold text-brand-700">
+          Explore Cities
+          <ArrowRight className="h-4 w-4" />
+        </span>
+      </Link>
+
+      <Link
+        href="/routes"
+        className="rounded-xl border border-brand-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      >
+        <h3 className="text-2xl font-bold text-ink">
+          Transport Routes
+        </h3>
+
+        <p className="mt-3 text-slate-600">
+          Discover popular transport routes and logistics coverage across Pakistan.
+        </p>
+
+        <span className="mt-5 inline-flex items-center gap-2 font-bold text-brand-700">
+          View Routes
+          <ArrowRight className="h-4 w-4" />
+        </span>
+      </Link>
+    </div>
+  </div>
+</section>
       <FAQ items={cms.faqs} />
 
       <section className="section-pad bg-white">
