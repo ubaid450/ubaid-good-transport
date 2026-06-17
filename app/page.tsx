@@ -272,6 +272,48 @@ export default async function HomePage() {
     </div>
   </div>
 </section>
+<section className="section-pad bg-brand-50">
+  <div className="container-pad max-w-5xl">
+    <SectionHeading
+      eyebrow="Quick Answers"
+      title="Goods Transport Questions Answered"
+      description="Fast answers about cargo transport, truck booking, loading services, and house shifting in Pakistan."
+      align="center"
+    />
+
+    <div className="mt-10 space-y-6">
+      <article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+        <h3 className="text-xl font-bold text-ink">
+          What services does Ubaid Goods Transport provide?
+        </h3>
+        <p className="mt-3 text-slate-600 leading-7">
+          Ubaid Goods Transport provides cargo transport, loading services,
+          truck booking, logistics support, and house shifting services across Pakistan.
+        </p>
+      </article>
+
+      <article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+        <h3 className="text-xl font-bold text-ink">
+          Which cities do you serve?
+        </h3>
+        <p className="mt-3 text-slate-600 leading-7">
+          We provide transport services in Lahore, Karachi, Islamabad,
+          Rawalpindi, Faisalabad, Multan, Peshawar, Gujranwala, and long routes across Pakistan.
+        </p>
+      </article>
+
+      <article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+        <h3 className="text-xl font-bold text-ink">
+          How can I request a transport quote?
+        </h3>
+        <p className="mt-3 text-slate-600 leading-7">
+          You can request a quote by submitting the online form, calling us,
+          or contacting us through WhatsApp for immediate assistance.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
       <FAQ items={cms.faqs} />
 
       <section className="section-pad bg-white">
