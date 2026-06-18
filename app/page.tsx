@@ -311,6 +311,59 @@ export default async function HomePage() {
           or contacting us through WhatsApp for immediate assistance.
         </p>
       </article>
+      <article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+  <h3 className="text-xl font-bold text-ink">
+    Do you provide goods transport across Pakistan?
+  </h3>
+  <p className="mt-3 text-slate-600 leading-7">
+    Yes, Ubaid Goods Transport provides goods transport, cargo delivery,
+    truck booking and logistics services across major cities and long routes
+    throughout Pakistan.
+  </p>
+</article>
+
+<article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+  <h3 className="text-xl font-bold text-ink">
+    Can I book a truck online?
+  </h3>
+  <p className="mt-3 text-slate-600 leading-7">
+    Yes, you can request a transport quote online, contact us through
+    WhatsApp, or call us directly for truck booking and cargo transport
+    services.
+  </p>
+</article>
+
+<article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+  <h3 className="text-xl font-bold text-ink">
+    Do you provide house shifting services?
+  </h3>
+  <p className="mt-3 text-slate-600 leading-7">
+    Yes, Ubaid Goods Transport provides house shifting services for homes,
+    apartments and offices with loading, transportation and delivery support.
+  </p>
+</article>
+
+<article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+  <h3 className="text-xl font-bold text-ink">
+    Do you provide loading services?
+  </h3>
+  <p className="mt-3 text-slate-600 leading-7">
+    Yes, we provide loading and unloading services for household goods,
+    commercial cargo, warehouses, factories and market supplies across
+    Pakistan.
+  </p>
+</article>
+
+<article className="rounded-lg border border-brand-100 bg-white p-6 shadow-sm">
+  <h3 className="text-xl font-bold text-ink">
+    Which truck sizes are available?
+  </h3>
+  <p className="mt-3 text-slate-600 leading-7">
+    We can arrange different truck sizes depending on cargo requirements,
+    including Mazda trucks, cargo trucks and larger vehicles for long route
+    deliveries and commercial transport.
+  </p>
+</article>
     </div>
   </div>
 </section>
