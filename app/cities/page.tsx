@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Goods Transport Cities Pakistan",
+  description:
+    "Explore goods transport, cargo transport, truck booking and loading services in major cities across Pakistan.",
+};
 import Link from "next/link";
 
 const cities = [
@@ -59,8 +67,7 @@ export default function CitiesPage() {
         {cities.map((city) => (
           <div
             key={city.name}
-            className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
+           className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             <h2 className="text-xl font-bold mb-3">
               {city.name} Goods Transport
             </h2>
