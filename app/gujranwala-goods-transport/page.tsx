@@ -50,6 +50,39 @@ export default function GujranwalaGoodsTransportPage() {
           <QuoteForm />
         </div>
       </section>
+      <section className="section-pad bg-slate-50">
+  <div className="container-pad">
+    <div className="mx-auto max-w-4xl text-center">
+      <h2 className="text-4xl font-bold text-ink">
+        Gujranwala Goods Transport Questions Answered
+      </h2>
+
+      <p className="mt-4 text-lg text-slate-600">
+        Fast answers about cargo transport, truck booking, loading services, and commercial goods movement from Gujranwala.
+      </p>
+    </div>
+
+    <div className="mx-auto mt-12 max-w-5xl space-y-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          Do you provide goods transport in Gujranwala?
+        </h3>
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Yes. We provide cargo transport, truck booking, loading services, and commercial goods transport in Gujranwala.
+        </p>
+      </div>
+
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          Can I book transport from Gujranwala to other cities?
+        </h3>
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Yes. Transport can be booked from Gujranwala to Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, and other cities across Pakistan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
     </>
   );
 }
