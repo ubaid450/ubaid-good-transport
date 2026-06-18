@@ -118,6 +118,49 @@ export default function KarachiGoodsTransportPage() {
           </div>
         </div>
       </section>
+      <section className="section-pad bg-slate-50">
+  <div className="container-pad">
+    <div className="mx-auto max-w-4xl text-center">
+      <p className="text-sm font-bold uppercase text-brand-600">
+        Quick Answers
+      </p>
+
+      <h2 className="mt-3 text-4xl font-bold text-ink">
+        Karachi Goods Transport Questions Answered
+      </h2>
+
+      <p className="mt-4 text-lg text-slate-600">
+        Fast answers about cargo transport, truck booking, container transport,
+        loading services, and long-route delivery from Karachi.
+      </p>
+    </div>
+
+    <div className="mx-auto mt-12 max-w-5xl space-y-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          Do you provide goods transport in Karachi?
+        </h3>
+
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Yes. Ubaid Goods Transport provides cargo transport, truck booking,
+          loading services, container transport, and long-route delivery
+          services in Karachi and nearby areas.
+        </p>
+      </div>
+
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          Can I book a truck from Karachi to other cities?
+        </h3>
+
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Yes. You can book transport from Karachi to Lahore, Islamabad,
+          Multan, Faisalabad, Rawalpindi, and other cities across Pakistan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
     </>
   );
 }
