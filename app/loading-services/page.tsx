@@ -51,6 +51,45 @@ export default function LoadingServicesPage() {
           <QuoteForm />
         </div>
       </section>
+      <section className="section-pad bg-slate-50">
+  <div className="container-pad">
+    <div className="mx-auto max-w-4xl text-center">
+      <p className="text-sm font-bold uppercase text-brand-600">
+        Quick Answers
+      </p>
+
+      <h2 className="mt-3 text-4xl font-bold text-ink">
+        Loading Services Questions Answered
+      </h2>
+
+      <p className="mt-4 text-lg text-slate-600">
+        Fast answers about loading, unloading, cargo handling, warehouse loading, and transport support in Pakistan.
+      </p>
+    </div>
+
+    <div className="mx-auto mt-12 max-w-5xl space-y-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          What are loading services?
+        </h3>
+
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Loading services help move furniture, cargo, cartons, commercial goods, warehouse stock, and industrial items safely into or out of trucks and transport vehicles.
+        </p>
+      </div>
+
+      <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h3 className="text-2xl font-bold text-ink">
+          Can I book loading labor with transport?
+        </h3>
+
+        <p className="mt-5 text-lg leading-9 text-slate-600">
+          Yes. Ubaid Goods Transport provides loading teams together with truck booking, cargo transport, house shifting, and long-route delivery services across Pakistan.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
     </>
   );
 }
