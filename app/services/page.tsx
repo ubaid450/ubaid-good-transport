@@ -4,12 +4,50 @@ import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
 import { getCmsContent } from "@/lib/cms";
 import { iconMap, type IconName } from "@/lib/icon-map";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Logistics Services",
   description: "Explore loading services, house shifting, cargo transport, truck dispatch Pakistan, goods transport, and logistics services by Ubaid Goods Transport."
 };
-
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is a goods transport service?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Goods transport service helps individuals and businesses move cargo across Pakistan using trucks and logistics support."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How do I book a truck in Pakistan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "You can call, WhatsApp, or submit an online quote form with pickup city, delivery city, goods type, and truck requirements."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Which cities are covered?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We provide transport services in Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar, and Gujranwala."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How quickly can I get a quote?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most transport quotations are provided within a few minutes."
+      }
+    }
+  ]
+};
 export default async function ServicesPage() {
   const cms = await getCmsContent();
   const services = cms.services.map((service) => ({
@@ -19,6 +57,13 @@ export default async function ServicesPage() {
 
   return (
     <>
+    <Script
+  id="services-faq-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(faqSchema),
+  }}
+/>
       <PageHero
         eyebrow="Services"
         title="Transport services for cargo, house shifting, loading, dispatch, and delivery."
