@@ -30,6 +30,17 @@ export function Footer({ cms }: { cms?: CmsContent }) {
                 {link.label}
               </Link>
             ))}
+            <Link href="/privacy-policy" className="text-sm text-blue-50 transition hover:text-white">
+  Privacy Policy
+</Link>
+
+<Link href="/terms-and-conditions" className="text-sm text-blue-50 transition hover:text-white">
+  Terms & Conditions
+</Link>
+
+<Link href="/disclaimer" className="text-sm text-blue-50 transition hover:text-white">
+  Disclaimer
+</Link>
           </div>
         </div>
 
@@ -48,8 +59,8 @@ export function Footer({ cms }: { cms?: CmsContent }) {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase text-blue-100">CONTACT
-          WhatsApp: 03234125101</h3>
+          <h3 className="text-sm font-bold uppercase text-blue-100">CONTACT</h3>
+          WHATSAPP: 03234125101
           <div className="mt-4 grid gap-4 text-sm text-blue-50">
             <a className="flex gap-3 hover:text-white" href={`tel:${company?.phone || siteConfig.phone}`}>
               <Phone aria-hidden="true" className="mt-0.5 h-4 w-4" />
