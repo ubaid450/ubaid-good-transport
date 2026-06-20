@@ -20,7 +20,7 @@ export const siteConfig = {
   url: "https://ubaidgoodstransport.com",
   phone: "03234125101",
   whatsapp: "923234125101",
-  email: "info@ubaidgoodtransport.com",
+email: "ubaidtransport5482@gmail.com",
   address: "Main Transport Hub, Karachi, Pakistan",
   serviceAreas: ["Lahore", "Karachi", "Multan", "Rawalpindi", "All Over Pakistan"],
   socialLinks: [
