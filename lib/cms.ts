@@ -10,7 +10,6 @@ export type CmsService = {
 export type CmsBlogPost = {
   slug: string;
   title: string;
-  image?: string;
   excerpt: string;
   content: string;
   date: string;
