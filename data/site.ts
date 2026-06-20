@@ -21,7 +21,7 @@ export const siteConfig = {
   phone: "03234125101",
   whatsapp: "923234125101",
   email: "info@ubaidgoodtransport.com",
-  address: "Main Transport Hub, Lahore, Pakistan",
+  address: "Main Transport Hub, Karachi, Pakistan",
   serviceAreas: ["Lahore", "Karachi", "Multan", "Rawalpindi", "All Over Pakistan"],
   socialLinks: [
     { label: "LinkedIn", href: "https://www.linkedin.com" },
