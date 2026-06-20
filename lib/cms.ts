@@ -66,7 +66,7 @@ export const defaultCmsContent: CmsContent = {
     phone: "03234125101",
     whatsapp: "923234125101",
     email: "info@ubaidgoodstransport.com",
-    address: "Main Transport Hub, Lahore, Pakistan",
+    address: "Main Transport Hub, Karachi, Pakistan",
     logoUrl: "",
   },
   homepage: {
