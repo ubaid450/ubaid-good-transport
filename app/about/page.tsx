@@ -51,6 +51,43 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <section className="section-pad bg-slate-50">
+  <div className="container-pad max-w-4xl">
+    <h2 className="text-3xl font-bold text-ink">
+      Why Choose Ubaid Goods Transport?
+    </h2>
+
+
+<p className="mt-5 text-base leading-8 text-slate-600">
+  Ubaid Goods Transport is a trusted transport company in Pakistan providing
+  cargo transport, house shifting, loading services, truck dispatch, and
+  logistics solutions across Pakistan. We help families, businesses, and
+  commercial customers move goods safely and efficiently.
+</p>
+
+<ul className="mt-6 space-y-3 text-slate-600">
+  <li>✅ Reliable cargo transport across Pakistan</li>
+  <li>✅ Professional loading and unloading services</li>
+  <li>✅ House shifting services for homes and offices</li>
+  <li>✅ Quick booking through phone and WhatsApp</li>
+  <li>✅ Experienced transport and logistics team</li>
+  <li>✅ Service available in Lahore, Karachi, Islamabad, Rawalpindi, Multan, Faisalabad, and other cities</li>
+</ul>
+
+<h2 className="mt-10 text-3xl font-bold text-ink">
+  Contact Us
+</h2>
+
+<p className="mt-5 text-base leading-8 text-slate-600">
+  Need transport services in Pakistan? Call or WhatsApp
+  <strong> 03234125101 </strong>
+  for a quick quote and reliable cargo transport services across Pakistan.
+</p>
+
+
+  </div>
+</section>
+
     </>
   );
 }

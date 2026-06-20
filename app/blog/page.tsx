@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { getCmsContent } from "@/lib/cms";
@@ -23,6 +24,13 @@ export default async function BlogPage() {
         <div className="container-pad grid gap-5 lg:grid-cols-3">
           {cms.blogPosts.map((post) => (
             <article key={post.slug} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-premium">
+              <Image
+  src={post.image}
+  alt={post.title}
+  width={600}
+  height={350}
+  className="h-52 w-full rounded-lg object-cover"
+/>
               <p className="text-sm font-bold uppercase text-brand-600">{post.category}</p>
               <h2 className="mt-4 text-2xl font-bold text-ink">{post.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">{post.excerpt}</p>

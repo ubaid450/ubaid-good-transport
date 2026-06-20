@@ -10,6 +10,7 @@ export type CmsService = {
 export type CmsBlogPost = {
   slug: string;
   title: string;
+  image: string;
   excerpt: string;
   content: string;
   date: string;
@@ -200,6 +201,7 @@ export const defaultCmsContent: CmsContent = {
     {
       slug: "transport-company-in-pakistan-guide",
       title: "How to Choose a Transport Company in Pakistan",
+      image: "/images/blog/transport-company.jpg",
       excerpt:
         "A practical guide for comparing cargo transport, loading support, long route delivery, and logistics services across Pakistan.",
       content:
@@ -211,6 +213,20 @@ export const defaultCmsContent: CmsContent = {
       metaDescription:
         "Compare cargo transport, loading support, route coverage, and logistics services in Pakistan.",
     },
+    {
+slug: "house-shifting-cost-in-pakistan-2026-guide",
+title: "House Shifting Cost in Pakistan (2026 Complete Guide)",
+excerpt:
+"Learn about house shifting costs in Pakistan, factors affecting moving charges, and how to book reliable house shifting services.",
+content:
+"<h2>House Shifting Cost in Pakistan</h2><p>House shifting costs in Pakistan depend on distance, number of items, truck size, labor requirements, and additional services such as packing and loading.</p><h2>Average House Shifting Charges</h2><p>Within the same city, moving costs are usually lower than intercity moves. Charges vary according to household size and transport requirements.</p><h2>Factors That Affect Moving Costs</h2><ul><li>Pickup and delivery location</li><li>Truck size and availability</li><li>Loading and unloading labor</li><li>Packing requirements</li><li>Distance between cities</li></ul><h2>How to Reduce House Shifting Costs</h2><p>Plan your move early, prepare an inventory, and request quotes in advance to find suitable transport options.</p><h2>Book Professional House Shifting Services</h2><p>Ubaid Goods Transport provides house shifting, loading services, and truck booking across Pakistan with reliable support and transport coordination.</p>",
+date: "2026-06-19",
+category: "House Shifting",
+readTime: "6 min read",
+metaTitle: "House Shifting Cost in Pakistan (2026 Complete Guide)",
+metaDescription:
+"Learn about house shifting costs in Pakistan, moving charges, truck booking, loading services, and practical tips for planning your move."
+},
   ],
   images: [],
 };
