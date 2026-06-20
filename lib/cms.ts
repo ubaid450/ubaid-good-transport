@@ -200,7 +200,7 @@ export const defaultCmsContent: CmsContent = {
     {
       slug: "transport-company-in-pakistan-guide",
       title: "How to Choose a Transport Company in Pakistan",
-      image: "/images/blog/transport-company.jpg",
+      
       excerpt:
         "A practical guide for comparing cargo transport, loading support, long route delivery, and logistics services across Pakistan.",
       content:
